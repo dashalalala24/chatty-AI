@@ -1,0 +1,40 @@
+.header {
+  padding: 40px 50px 17px;
+  display: grid;
+  grid-template-columns: 114px auto auto;
+  grid-template-rows: auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  align-items: center;
+}
+
+.header__logo {
+  width: 114px;
+  height: 34px;
+  background-image: url(../../images/logo.svg);
+}
+
+.header__links {
+  display: flex;
+  gap: 16px;
+  margin: 0 0 3px 40px;
+  align-items: center;
+  justify-self: start;
+}
+
+.header__link {
+  padding: 0;
+  opacity: 0.6;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.header__user {
+  background-image: url(../../images/userIcon.svg);
+  background-color: inherit;
+  width: 24px;
+  height: 24px;
+  margin: 0 0 3px;
+  border: none;
+  cursor: pointer;
+  justify-self: end;
+}
