@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/chatty-AI/static/css/main.8956cedf.css",
+    "main.js": "/chatty-AI/static/js/main.101c669f.js",
+    "static/media/header-logo.svg": "/chatty-AI/static/media/header-logo.76c188fc002070136bf495e88c7a1dca.svg",
+    "static/media/button.svg": "/chatty-AI/static/media/button.555a743ada512d80414d.svg",
+    "index.html": "/chatty-AI/index.html",
+    "static/media/header-profile.svg": "/chatty-AI/static/media/header-profile.9b90fcc565b8759d42c1a3557413326a.svg",
+    "main.8956cedf.css.map": "/chatty-AI/static/css/main.8956cedf.css.map",
+    "main.101c669f.js.map": "/chatty-AI/static/js/main.101c669f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8956cedf.css",
+    "static/js/main.101c669f.js"
+  ]
+}
