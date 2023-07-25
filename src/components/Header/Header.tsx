@@ -11,11 +11,9 @@ const Header:FC = () => {
       <nav className='header__nav'>
         <li>
           <Link className='header__link' to='/'>О проекте</Link>
-          {/* <p className='header__link'>О проекте</p> */}
         </li>
         <li>
           <Link className='header__link' to='/'>Настройки</Link>
-          {/* <p className='header__link'>Настройки</p> */}
         </li>
       </nav>
       <img className='header__profile' src={headerProfile} alt='Кнопка профиля пользователя'/>
