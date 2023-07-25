@@ -1,14 +1,16 @@
 import './App.css';
-import record from './utils/MediaStream';
+import { FC } from 'react';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
-function App() {
+const App:FC = () => {
+
   return (
     <div className='App'>
-      <header className='App-header'>Chatty AI</header>
-      <h1>Record Your Voice</h1>
-      <div>
-        <button className='app__record-button' type='button' onClick={record} id='record-button' />
-      </div>
+      <>
+        <Header />
+        <Main />
+      </>
     </div>
   );
 }
