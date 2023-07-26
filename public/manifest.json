@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Chatty AI",
+  "name": "Chat GPT Voice Assistant",
   "icons": [
     {
       "src": "favicon.ico",
