@@ -1,16 +1,31 @@
 {
   "files": {
-    "main.css": "/chatty-AI/static/css/main.8956cedf.css",
-    "main.js": "/chatty-AI/static/js/main.a3d787a1.js",
+    "main.css": "/chatty-AI/static/css/main.2c613a18.css",
+    "main.js": "/chatty-AI/static/js/main.c9cd7c8d.js",
+    "static/media/Lato-Black.ttf": "/chatty-AI/static/media/Lato-Black.0f56360fd2c505dd13fa.ttf",
+    "static/media/Lato-Regular.ttf": "/chatty-AI/static/media/Lato-Regular.2b7b7f6c8554ad96436b.ttf",
+    "static/media/Lato-Bold.ttf": "/chatty-AI/static/media/Lato-Bold.0baf4e4829ca0a3e1e5c.ttf",
+    "static/media/Lato-Light.ttf": "/chatty-AI/static/media/Lato-Light.db4ac5122b70c74fd850.ttf",
+    "static/media/Lato-Black.woff": "/chatty-AI/static/media/Lato-Black.a255d7b67c0e189b5fa9.woff",
+    "static/media/Lato-Bold.woff": "/chatty-AI/static/media/Lato-Bold.499d0e66b01f231a0dea.woff",
+    "static/media/Lato-Regular.woff": "/chatty-AI/static/media/Lato-Regular.3c6eabbd5cdb94052ed5.woff",
+    "static/media/Lato-Light.woff": "/chatty-AI/static/media/Lato-Light.53ddfbac95d12392591a.woff",
+    "static/media/Lato-Black.woff2": "/chatty-AI/static/media/Lato-Black.cc8e4c50a74ad183561f.woff2",
+    "static/media/Lato-Bold.woff2": "/chatty-AI/static/media/Lato-Bold.2131d66bae125bc7f189.woff2",
+    "static/media/Lato-Regular.woff2": "/chatty-AI/static/media/Lato-Regular.0215cb10e05c259a6099.woff2",
+    "static/media/Lato-Light.woff2": "/chatty-AI/static/media/Lato-Light.7e22004ba69001a76114.woff2",
+    "static/media/OpenSans-Regular.woff2": "/chatty-AI/static/media/OpenSans-Regular.b0b3f65cea397ad818f9.woff2",
+    "static/media/OpenSans-Regular.ttf": "/chatty-AI/static/media/OpenSans-Regular.9a6cfa5890d7f3eef585.ttf",
+    "static/media/OpenSans-Regular.woff": "/chatty-AI/static/media/OpenSans-Regular.177d23bb963a17a1ada6.woff",
     "static/media/header-logo.svg": "/chatty-AI/static/media/header-logo.76c188fc002070136bf495e88c7a1dca.svg",
-    "static/media/button.svg": "/chatty-AI/static/media/button.555a743ada512d80414d.svg",
     "index.html": "/chatty-AI/index.html",
+    "static/media/button.svg": "/chatty-AI/static/media/button.57fe396d50cd1e64e972.svg",
     "static/media/header-profile.svg": "/chatty-AI/static/media/header-profile.9b90fcc565b8759d42c1a3557413326a.svg",
-    "main.8956cedf.css.map": "/chatty-AI/static/css/main.8956cedf.css.map",
-    "main.a3d787a1.js.map": "/chatty-AI/static/js/main.a3d787a1.js.map"
+    "main.2c613a18.css.map": "/chatty-AI/static/css/main.2c613a18.css.map",
+    "main.c9cd7c8d.js.map": "/chatty-AI/static/js/main.c9cd7c8d.js.map"
   },
   "entrypoints": [
-    "static/css/main.8956cedf.css",
-    "static/js/main.a3d787a1.js"
+    "static/css/main.2c613a18.css",
+    "static/js/main.c9cd7c8d.js"
   ]
 }
