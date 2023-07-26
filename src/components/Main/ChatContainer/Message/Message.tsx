@@ -33,7 +33,13 @@ const Message: FC<IMessage> = ({ text, owner, lastMessage }) => {
           ></div>
         ) : null}
       </div>
-      <p className={`message__time message__time_type_${owner}`}>20:30</p>
+      <p
+        className={`message__time message__time_type_${owner} ${
+          lastMessage ? "message__time_last" : ""
+        }`}
+      >
+        20:30
+      </p>
     </div>
   );
 };
