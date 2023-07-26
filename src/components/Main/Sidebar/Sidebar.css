@@ -1,6 +1,80 @@
 .sidebar {
+  padding: 40px 58px;
   display: flex;
-  flex: 2.75;
-  width: 394px;
+  flex-direction: column;
+  width: 278px;
   border: 1px solid rebeccapurple;
+  border-left: 0.5px solid rgba(0, 0, 0, 0.25);
+}
+
+.sidebar__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 28px;
+}
+
+.sidebar__subtitle {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-size: 26px;
+  line-height: 35px;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(42, 42, 42, 1);
+}
+
+.sidebar__search-button {
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  background-image: url(../../../images/search-button.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: opacity 0.35s linear;
+}
+
+.sidebar__history-container {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar__history-subtitle {
+  margin: 0;
+  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(42, 42, 42, 0.5);
+}
+
+.sidebar__newchat-button {
+  padding: 0 34px 0 0;
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-style: normal;
+  font-weight: 600;
+  color: rgba(251, 251, 251, 1);
+  background-color: rgba(148, 0, 217, 1);
+  background-image: url(../../../images/newchat-button.svg);
+  background-repeat: no-repeat;
+  background-position: 174px 13px;
+  cursor: pointer;
+  transition: opacity 0.35s linear;
+}
+
+.sidebar__newchat-button:hover {
+  opacity: 70%;
 }
