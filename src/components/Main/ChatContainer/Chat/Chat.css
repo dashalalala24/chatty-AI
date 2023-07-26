@@ -1,0 +1,18 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 541px;
+
+  overflow: scroll;
+}
+
+.chat__date {
+  color: #2a2a2a;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  padding: 16px 0;
+  margin: 0;
+}

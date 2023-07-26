@@ -1,15 +1,17 @@
-import { FC } from 'react';
-import './ChatContainer.css';
-import Chat from '../Chat/Chat';
-import WaveAnimation from '../WaveAnimation/WaveAnimation';
+import { FC } from "react";
+import "./ChatContainer.css";
+import Chat from "./Chat/Chat";
+import WaveAnimation from "./WaveAnimation/WaveAnimation";
+import Input from "./Input/Input";
 
 const ChatContainer: FC = () => {
   return (
-    <section className='chatContainer'>
+    <section className="chatContainer">
       <Chat />
       <WaveAnimation />
+      <Input />
     </section>
   );
-}
+};
 
 export default ChatContainer;
