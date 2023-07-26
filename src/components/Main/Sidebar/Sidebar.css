@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   width: 278px;
-  border: 1px solid rebeccapurple;
   border-left: 0.5px solid rgba(0, 0, 0, 0.25);
 }
 
@@ -42,7 +41,17 @@
   flex-direction: column;
   margin: 24px 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 76px);
+}
+
+.sidebar__date {
+  margin: 0;
+  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(42, 42, 42, 1);
 }
 
 .sidebar__history-subtitle {
@@ -53,6 +62,31 @@
   font-style: normal;
   font-weight: 400;
   color: rgba(42, 42, 42, 0.5);
+}
+
+.sidebar__message {
+  display: flex;
+  margin: 12px 0 0 0;
+  position: relative;
+}
+
+.sidebar__basket-button {
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: calc((100% - 12px)/2);
+  right: 8px;
+  border: none;
+  background-color: transparent;
+  background-image: url(../../../images/sidebar-basketicon.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: opacity 0.35s linear;
+}
+
+.sidebar__basket-button:hover {
+  opacity: 70%;
 }
 
 .sidebar__newchat-button {
@@ -70,11 +104,23 @@
   background-color: rgba(148, 0, 217, 1);
   background-image: url(../../../images/newchat-button.svg);
   background-repeat: no-repeat;
-  background-position: 174px 13px;
+  background-position: 174px 12px;
   cursor: pointer;
   transition: opacity 0.35s linear;
 }
 
 .sidebar__newchat-button:hover {
   opacity: 70%;
+}
+
+.sidebar__text {
+  margin: 0;
+  padding: 12px 16px;
+  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(42, 42, 42, 1);
+  text-align: left;
 }

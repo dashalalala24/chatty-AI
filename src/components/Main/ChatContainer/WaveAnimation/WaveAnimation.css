@@ -1,10 +1,11 @@
 .wave__section {
+  justify-self: end;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 470px;
+  height: 188px;
 }
 
 .wave__record-block {
@@ -34,7 +35,7 @@
   border: none;
   border-radius: 24px;
   background-color: transparent;
-  background-image: url(../../../images/button.svg);
+  background-image: url(../../../../images/button.svg);
   background-repeat: no-repeat;
   background-size: 52px 52px;
   background-position: 50%;
@@ -50,34 +51,10 @@
 .wave__record-subtitle {
   margin: 0;
   padding: 28px 0 0 0;
-  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-family: "Open Sans", "Lato", "Inter", "Arial", "Helvetica", sans-serif;
   font-size: 24px;
   line-height: 33px;
   font-style: normal;
   font-weight: 400;
-  color: #2A2A2A;
-}
-
-.wave__form {
-  margin: 158px 0 56px 58px;
-  display: flex;
-  flex-direction: column;
-}
-
-.wave__search-input {
-  margin: 0;
-  padding: 8px;
-  width: 896px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-  font-family: 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
-  font-size: 12px;
-  line-height: 16px;
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(0, 0, 0);
-}
-
-.wave__search-input:focus {
-  outline: none;
+  color: #2a2a2a;
 }

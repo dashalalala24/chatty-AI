@@ -1,8 +1,8 @@
 .App {
   text-align: center;
   max-width: 1440px;
-  font-family: 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
-  background-color: #FFFFFF;
+  font-family: "Lato", "Open Sans", sans-serif;
+  background-color: #ffffff;
   -webkit-font-smooting: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
