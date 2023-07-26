@@ -1,8 +1,9 @@
 import './Main.css';
+import { FC } from 'react';
 import ChatContainer from './ChatContainer/ChatContainer';
 import Sidebar from './Sidebar/Sidebar';
 
-function Main() {
+const Main: FC = () => {
   return (
     <main className='main' >
       <>

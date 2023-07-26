@@ -1,4 +1,4 @@
-import waveAnimation from "./WaveAnimation";
+import animation from "./Animation";
 
 let chunks = [];
 let mediaRecorder = null;
@@ -20,8 +20,8 @@ function mediaRecorderStop() {
 
   mediaRecorder = null;
   chunks = [];
-  // waveAnimation(0, 100, -0.0005, -0.0002);
-  document.getElementById('canvas').remove();
+  animation(0, 100, -0.0005, -0.0002);
+  // document.getElementById('canvas').remove();
 }
 
 export default async function record() {
@@ -38,7 +38,7 @@ export default async function record() {
       })
       mediaRecorder = new MediaRecorder(stream);
       mediaRecorder.start();
-      waveAnimation(0, 1, -0.05, -0.2);
+      animation(0, 1, -0.05, -0.2);
       // console.log(mediaRecorder.state);
       // console.log("recorder started");
       mediaRecorder.ondataavailable = mediaRecorderDataAvailable;

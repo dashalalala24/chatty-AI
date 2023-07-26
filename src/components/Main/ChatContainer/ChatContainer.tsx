@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import './ChatContainer.css';
 import Chat from '../Chat/Chat';
 import WaveAnimation from '../WaveAnimation/WaveAnimation';
 
-function ChatContainer() {
+const ChatContainer: FC = () => {
   return (
     <section className='chatContainer'>
       <Chat />

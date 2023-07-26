@@ -1,12 +1,12 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin: 40px 50px 20px 50px;
+  margin: 28.5px 58px;
 }
 
 .header__logo {
   width: 108.51px;
-  height: 31.17px;
+  height: 35px;
   box-sizing: border-box;
 }
 
@@ -14,7 +14,7 @@
   display: flex;
   list-style-type: none;
   align-items: center;
-  width: calc(100% - 212.5px);
+  width: calc(100% - 220px);
 }
 
 .header__link {

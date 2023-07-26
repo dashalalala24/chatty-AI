@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import './Sidebar.css';
 
-function Sidebar() {
+const Sidebar: FC = () => {
   return (
     <section className='sidebar'>
 

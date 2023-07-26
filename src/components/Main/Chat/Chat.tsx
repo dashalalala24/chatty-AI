@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import './Chat.css';
 
-function Chat() {
+const Chat: FC = () => {
   return (
     <section className='chat'>
 
