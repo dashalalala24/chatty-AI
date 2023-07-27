@@ -36,6 +36,10 @@
   transition: opacity 0.35s linear;
 }
 
+.sidebar__search-button:hover {
+  opacity: 70%;
+}
+
 .sidebar__history-container {
   display: flex;
   flex-direction: column;

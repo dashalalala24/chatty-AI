@@ -9,6 +9,9 @@ const HistoryInput: FC = () => {
         type='text'
         placeholder='Поиск по истории'
       />
+      <button className='historyinput__calender-button'
+        onClick={(evt:any) => {evt.preventDefault()}}
+      />
     </form>
   );
 };

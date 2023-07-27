@@ -20,7 +20,7 @@ const RequestMessage: FC<IRequestMessage> = ({text}) => {
       /> */}
       {isHovered ? (
         <RecyclebinButton
-          onClick={(evt: any)=> {console.log(evt.target.closest('.sidebar__message').remove())}}
+          onClick={(evt: any) => {evt.target.closest('.sidebar__message').remove()}}
         />
       ) : null
       }
