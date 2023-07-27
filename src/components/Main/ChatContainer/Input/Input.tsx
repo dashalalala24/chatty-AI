@@ -3,7 +3,12 @@ import "./Input.css";
 
 const Input: FC = () => {
   return (
-    <form className="input__form">
+    <form
+      className="input__form"
+      onSubmit={() => {
+        console.log("submited");
+      }}
+    >
       <input
         className="input__field"
         type="text"
