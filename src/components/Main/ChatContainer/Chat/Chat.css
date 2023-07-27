@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-height: 541px;
-
+  /* max-height: 541px; */
   overflow: scroll;
+  /* justify-content: end; */
+  /* margin-top: auto; */
 }
 
 .chat__date {
@@ -14,5 +15,11 @@
   font-weight: 400;
   line-height: 17px;
   padding: 16px 0;
+  margin: 0;
+}
+
+.chat__messages {
+  list-style-type: none;
+  padding: 0;
   margin: 0;
 }

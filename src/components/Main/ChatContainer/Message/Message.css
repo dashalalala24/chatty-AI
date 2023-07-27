@@ -11,6 +11,10 @@
   text-align: start;
   padding: 20px;
   margin: 0;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
 }
 
 .message__text_type_user {
@@ -21,6 +25,24 @@
 .message__text_type_ai {
   background-color: #fff;
   border-radius: 16px 16px 16px 0px;
+}
+
+.message__text-container {
+  justify-self: end;
+}
+
+.message__paragraph {
+  padding: 0 0 35px;
+  margin: 0;
+}
+
+.message__paragraph:last-of-type {
+  padding: 0;
+}
+
+.message__link {
+  color: #9400d9;
+  text-decoration: none;
 }
 
 .message__container {
