@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "./RequestMessage.css";
 import RecyclebinButton from "./RecyclebinButton/RecyclebinButton";
 
@@ -7,18 +7,23 @@ interface IRequestMessage {
 }
 
 const RequestMessage: FC<IRequestMessage> = ({text}) => {
-  const button = document.createElement('button');
-  button.setAttribute('class', 'sidebar__recyclebin-button');
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className='sidebar__message'
-      onMouseOver={() => {}}
-      onMouseLeave={() => {}}
+      onMouseOver={() => {setIsHovered(true)}}
+      onMouseLeave={() => {setIsHovered(false)}}
     >
       <p className='sidebar__text'>{text}</p>
-      <RecyclebinButton
-        onClick={()=> {}}
-      />
+      {/* <RecyclebinButton
+        onClick={(evt: any)=> {console.log(evt.target.closest('.sidebar__message').remove())}}
+      /> */}
+      {isHovered ? (
+        <RecyclebinButton
+          onClick={(evt: any)=> {console.log(evt.target.closest('.sidebar__message').remove())}}
+        />
+      ) : null
+      }
     </div>
   );
 };
