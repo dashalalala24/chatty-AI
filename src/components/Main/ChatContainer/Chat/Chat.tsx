@@ -9,27 +9,30 @@ const Chat: FC = () => {
   console.log(chatMessages);
 
   const date = new Date().toLocaleDateString();
+  const time = new Date().toLocaleTimeString().slice(0, 5);
 
   return (
     <div className="chat">
       <p className="chat__date">{date}</p>
-      {chatMessages[0].owner !== "" ? (
+      {chatMessages.length ? (
         chatMessages.map((message) => {
           return (
-            <ul className="chat__messages">
-              <li key={message.createdAt}>
-                <Message
-                  text={message.text}
-                  owner={message.owner}
-                  createdAt={message.createdAt}
-                />
-              </li>
-            </ul>
+            // <ul className="chat__messages">
+            //   <li key={message.createdAt}>
+            <Message
+              key={message.createdAt}
+              text={message.text}
+              owner={message.owner}
+              createdAt={message.createdAt.slice(12, 17)}
+            />
+            //   </li>
+            // </ul>
           );
         })
       ) : (
         <Message
           text={
+            // "Привет! Я - ChattyAI, твой голосовой помощник"
             <>
               <p className="message__paragraph">
                 Привет! Я - ChattyAI, твой голосовой помощник
@@ -48,7 +51,7 @@ const Chat: FC = () => {
                 понятно и ясно, и не стесняйся задавать уточняющие вопросы.
                 Давай начнем! Жми на микрофон, спрашивай и я помогу!
               </p>
-              <p className="message_paragraph">
+              <p className="message__paragraph">
                 Выражай свои мысли понятно и ясно, и не стесняйся задавать
                 уточняющие вопросы. Давай начнем! Жми на микрофон, спрашивай и я
                 помогу!
@@ -56,8 +59,8 @@ const Chat: FC = () => {
             </>
           }
           owner="ai"
-          createdAt={Date}
-          defaultMessage={true}
+          createdAt={time}
+          // defaultMessage={true}
         />
       )}
       {/* <Message

@@ -6,25 +6,33 @@ import {
   useRef,
 } from "react";
 import "./Message.css";
-import { useAppSelector } from "../../../../services/redux/reduxHooks";
 
 interface IMessage {
   text: string | ReactNode;
   owner: "user" | "ai" | "";
-  createdAt: DateConstructor | string;
-  defaultMessage?: boolean;
+  createdAt: string;
+  // defaultMessage?: boolean;
   // ref?: MutableRefObject<HTMLDivElement | null>;
   lastMessage?: boolean;
 }
 const Message: FC<IMessage> = ({
   text,
   owner,
-  defaultMessage = false,
+  createdAt,
+  // defaultMessage = false,
   lastMessage = false,
 }) => {
   const lastMessageRef = useRef<null | HTMLDivElement>(null);
 
-  const time = new Date().toLocaleTimeString().slice(0, 5);
+  const onCopyClick = async () => {
+    if (typeof text === "string") {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (_) {
+        console.log("Нет доступа к буферу обмена");
+      }
+    }
+  };
 
   useLayoutEffect(() => {
     if (lastMessageRef.current) {
@@ -45,7 +53,7 @@ const Message: FC<IMessage> = ({
             className={`message__decoration message__decoration_type_${owner}`}
           ></div>
         ) : null}
-        {defaultMessage ? (
+        {typeof text === "string" ? (
           <p className={`message__text message__text_type_${owner}`}>{text}</p>
         ) : (
           <div className="message__text-container message__text_type_ai">
@@ -56,6 +64,11 @@ const Message: FC<IMessage> = ({
           <div
             className={`message__decoration message__decoration_type_${owner}`}
           ></div>
+        ) : owner === "ai" && typeof text === "string" ? (
+          <button
+            className="message__copy-button"
+            onClick={onCopyClick}
+          ></button>
         ) : null}
       </div>
       <p
@@ -63,7 +76,7 @@ const Message: FC<IMessage> = ({
           lastMessage ? "message__time_last" : ""
         }`}
       >
-        {time}
+        {createdAt}
       </p>
     </div>
   );
