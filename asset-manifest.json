@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/chatty-AI/static/css/main.2c613a18.css",
-    "main.js": "/chatty-AI/static/js/main.c9cd7c8d.js",
+    "main.css": "/chatty-AI/static/css/main.19003641.css",
+    "main.js": "/chatty-AI/static/js/main.cf0c6769.js",
     "static/media/Lato-Black.ttf": "/chatty-AI/static/media/Lato-Black.0f56360fd2c505dd13fa.ttf",
     "static/media/Lato-Regular.ttf": "/chatty-AI/static/media/Lato-Regular.2b7b7f6c8554ad96436b.ttf",
     "static/media/Lato-Bold.ttf": "/chatty-AI/static/media/Lato-Bold.0baf4e4829ca0a3e1e5c.ttf",
@@ -18,14 +18,18 @@
     "static/media/OpenSans-Regular.ttf": "/chatty-AI/static/media/OpenSans-Regular.9a6cfa5890d7f3eef585.ttf",
     "static/media/OpenSans-Regular.woff": "/chatty-AI/static/media/OpenSans-Regular.177d23bb963a17a1ada6.woff",
     "static/media/header-logo.svg": "/chatty-AI/static/media/header-logo.76c188fc002070136bf495e88c7a1dca.svg",
+    "static/media/sidebar-basketicon.svg": "/chatty-AI/static/media/sidebar-basketicon.39474b788e7a0e180370.svg",
+    "static/media/copy-button.svg": "/chatty-AI/static/media/copy-button.f2fe0dae6d6ad4343bda.svg",
     "index.html": "/chatty-AI/index.html",
     "static/media/button.svg": "/chatty-AI/static/media/button.57fe396d50cd1e64e972.svg",
     "static/media/header-profile.svg": "/chatty-AI/static/media/header-profile.9b90fcc565b8759d42c1a3557413326a.svg",
-    "main.2c613a18.css.map": "/chatty-AI/static/css/main.2c613a18.css.map",
-    "main.c9cd7c8d.js.map": "/chatty-AI/static/js/main.c9cd7c8d.js.map"
+    "static/media/search-button.svg": "/chatty-AI/static/media/search-button.1e4454b29e64f183b5ae.svg",
+    "static/media/newchat-button.svg": "/chatty-AI/static/media/newchat-button.be025ed7d19d9137a21a.svg",
+    "main.19003641.css.map": "/chatty-AI/static/css/main.19003641.css.map",
+    "main.cf0c6769.js.map": "/chatty-AI/static/js/main.cf0c6769.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c613a18.css",
-    "static/js/main.c9cd7c8d.js"
+    "static/css/main.19003641.css",
+    "static/js/main.cf0c6769.js"
   ]
 }
