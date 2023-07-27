@@ -1,4 +1,5 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchGetAIAnswer } from "./chatAPI";
 
 export interface IChatMessage {
   text: string;
@@ -7,15 +8,15 @@ export interface IChatMessage {
 }
 
 export interface IChat {
-  status: "idle" | "success" | "loading" | "failed";
+  status: "idle" | "fulfilled" | "pending" | "rejected";
   error: string | undefined;
-  chat: IChatMessage[];
+  chatMessages: IChatMessage[];
 }
 
 const initialState: IChat = {
   status: "idle",
   error: undefined,
-  chat: [
+  chatMessages: [
     // {
     //   text: "",
     //   owner: "",
@@ -24,14 +25,43 @@ const initialState: IChat = {
   ],
 };
 
+export const getAnswer = createAsyncThunk(
+  "order/fetchGetAIAnswer",
+  async (data: string) => {
+    const response = await fetchGetAIAnswer(data);
+    console.log(response.choices[0].message.content);
+    return response.choices[0].message.content;
+  }
+);
+
 const chatSlice = createSlice({
   name: "@@chat",
   initialState,
   reducers: {
     resetChat: () => initialState,
     addMessage: (state, action) => {
-      state.chat = [...state.chat, action.payload];
+      state.chatMessages = [...state.chatMessages, action.payload];
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getAnswer.pending, (state) => {
+        state.status = "pending";
+      })
+      .addCase(getAnswer.fulfilled, (state, action) => {
+        const date = new Date().toLocaleString();
+        console.log("date", date);
+        state.status = "fulfilled";
+        // console.log("payload", action.payload);
+        state.chatMessages.push({
+          text: action.payload,
+          owner: "ai",
+          createdAt: date,
+        });
+      })
+      .addCase(getAnswer.rejected, (state) => {
+        state.status = "rejected";
+      });
   },
 });
 

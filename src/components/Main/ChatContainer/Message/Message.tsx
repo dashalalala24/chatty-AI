@@ -6,10 +6,12 @@ import {
   useRef,
 } from "react";
 import "./Message.css";
+import { useAppSelector } from "../../../../services/redux/reduxHooks";
+import MessageLoader from "./MessageLoader/MessageLoader";
 
 interface IMessage {
   text: string | ReactNode;
-  owner: "user" | "ai" | "";
+  owner: "user" | "ai";
   createdAt: string;
   // defaultMessage?: boolean;
   // ref?: MutableRefObject<HTMLDivElement | null>;
@@ -22,6 +24,9 @@ const Message: FC<IMessage> = ({
   // defaultMessage = false,
   lastMessage = false,
 }) => {
+  const fetchStatus = useAppSelector((state) => state.chat.status);
+  console.log(fetchStatus);
+
   const lastMessageRef = useRef<null | HTMLDivElement>(null);
 
   const onCopyClick = async () => {
@@ -34,6 +39,7 @@ const Message: FC<IMessage> = ({
     }
   };
 
+  // console.log(createdAt);
   useLayoutEffect(() => {
     if (lastMessageRef.current) {
       lastMessageRef.current.scrollIntoView({
