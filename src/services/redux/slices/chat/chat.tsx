@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface IChatMessage {
   text: string;
-  owner: "user" | "ai" | "";
+  owner: "user" | "ai";
   createdAt: string;
 }
 
@@ -16,11 +16,11 @@ const initialState: IChat = {
   status: "idle",
   error: undefined,
   chat: [
-    {
-      text: "",
-      owner: "",
-      createdAt: "",
-    },
+    // {
+    //   text: "",
+    //   owner: "",
+    //   createdAt: "",
+    // },
   ],
 };
 
