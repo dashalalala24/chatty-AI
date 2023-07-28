@@ -59,20 +59,19 @@
   justify-content: flex-start;
 }
 
-.message__decoration_type_ai {
+.message__decoration {
   align-self: flex-end;
   width: 0;
   height: 0;
   border-style: solid;
+}
+
+.message__decoration_type_ai {
   border-width: 0 0 16px 20px;
   border-color: transparent transparent #ffffff transparent;
 }
 
 .message__decoration_type_user {
-  align-self: flex-end;
-  width: 0;
-  height: 0;
-  border-style: solid;
   border-width: 0px 20px 16px 0px;
   border-color: transparent transparent #faf2ff transparent;
 }
