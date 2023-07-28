@@ -1,8 +1,9 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../../../../services/redux/reduxHooks";
+
 import "./Chat.css";
 import Message from "../Message/Message";
-import { useAppSelector } from "../../../../services/redux/reduxHooks";
-import { Link } from "react-router-dom";
 import MessageLoader from "../Message/MessageLoader/MessageLoader";
 
 const Chat: FC = () => {
