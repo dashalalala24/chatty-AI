@@ -29,3 +29,18 @@
   text-align: left;
   white-space: nowrap;
 }
+
+.tags__button {
+  width: 16px;
+  height: 16px;
+  align-self: center;
+  border: 0;
+  background-color: transparent;
+  background-image: url(../../../../images/chevron-right.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.tags__button:hover {
+  background-image: url(../../../../images/chevron-right-hovered.svg);
+}

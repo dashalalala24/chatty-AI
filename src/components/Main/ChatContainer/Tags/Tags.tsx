@@ -22,6 +22,7 @@ const Tags:FC = () => {
       ) : (
         null
       )}
+      <button className='tags__button'></button>
     </div>
   );
 }
