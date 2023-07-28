@@ -1,25 +1,17 @@
-import {
-  FC,
-  MutableRefObject,
-  ReactNode,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import { FC, ReactNode, useLayoutEffect, useRef } from "react";
 import "./Message.css";
 
 interface IMessage {
   text: string | ReactNode;
-  owner: "user" | "ai" | "";
+  owner: "user" | "ai";
   createdAt: string;
-  // defaultMessage?: boolean;
-  // ref?: MutableRefObject<HTMLDivElement | null>;
   lastMessage?: boolean;
 }
+
 const Message: FC<IMessage> = ({
   text,
   owner,
   createdAt,
-  // defaultMessage = false,
   lastMessage = false,
 }) => {
   const lastMessageRef = useRef<null | HTMLDivElement>(null);
@@ -42,6 +34,7 @@ const Message: FC<IMessage> = ({
       });
     }
   }, []);
+
   return (
     <div
       className={`message message_type_${owner}`}
