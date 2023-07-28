@@ -37,7 +37,7 @@
 }
 
 .sidebar__search-button:hover {
-  opacity: 70%;
+  background-image: url(../../../images/search-button-hovered.svg);
 }
 
 .sidebar__history-container {
