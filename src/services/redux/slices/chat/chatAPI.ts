@@ -1,3 +1,5 @@
+const openAIKey = process.env.REACT_APP_OPEN_AI_API_KEY;
+
 function checkRes(res: any) {
   if (res.ok) {
     console.log("res.ok");
@@ -13,15 +15,11 @@ export function fetchGetAIAnswer(data: string) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "Bearer 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",
+      Authorization: `Bearer ${openAIKey}`,
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [
-        // { role: "system", content: "You are a helpful assistant." },
-        { role: "user", content: data },
-      ],
+      messages: [{ role: "user", content: data }],
     }),
   }).then(checkRes);
 }
