@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chatty-AI/static/css/main.19003641.css",
-    "main.js": "/chatty-AI/static/js/main.2263fe8d.js",
+    "main.js": "/chatty-AI/static/js/main.c98ca601.js",
     "static/media/Lato-Black.ttf": "/chatty-AI/static/media/Lato-Black.0f56360fd2c505dd13fa.ttf",
     "static/media/Lato-Regular.ttf": "/chatty-AI/static/media/Lato-Regular.2b7b7f6c8554ad96436b.ttf",
     "static/media/Lato-Bold.ttf": "/chatty-AI/static/media/Lato-Bold.0baf4e4829ca0a3e1e5c.ttf",
@@ -26,10 +26,10 @@
     "static/media/search-button.svg": "/chatty-AI/static/media/search-button.1e4454b29e64f183b5ae.svg",
     "static/media/newchat-button.svg": "/chatty-AI/static/media/newchat-button.be025ed7d19d9137a21a.svg",
     "main.19003641.css.map": "/chatty-AI/static/css/main.19003641.css.map",
-    "main.2263fe8d.js.map": "/chatty-AI/static/js/main.2263fe8d.js.map"
+    "main.c98ca601.js.map": "/chatty-AI/static/js/main.c98ca601.js.map"
   },
   "entrypoints": [
     "static/css/main.19003641.css",
-    "static/js/main.2263fe8d.js"
+    "static/js/main.c98ca601.js"
   ]
 }
