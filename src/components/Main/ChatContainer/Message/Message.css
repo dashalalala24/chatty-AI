@@ -11,6 +11,13 @@
   text-align: start;
   padding: 20px;
   margin: 0;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  /* display: -webkit-box;
+  -webkit-line-clamp: 14;
+  -webkit-box-orient: vertical; */
 }
 
 .message__text_type_user {
@@ -23,6 +30,26 @@
   border-radius: 16px 16px 16px 0px;
 }
 
+.message__text-container {
+  text-align: start;
+  padding: 20px;
+  margin: 0;
+}
+
+.message__paragraph {
+  padding: 0 0 30px;
+  margin: 0;
+}
+
+.message__paragraph:last-of-type {
+  padding: 0;
+}
+
+.message__link {
+  color: #9400d9;
+  text-decoration: none;
+}
+
 .message__container {
   display: flex;
   justify-content: flex-end;
@@ -32,22 +59,33 @@
   justify-content: flex-start;
 }
 
-.message__decoration_type_ai {
+.message__decoration {
   align-self: flex-end;
   width: 0;
   height: 0;
   border-style: solid;
+}
+
+.message__decoration_type_ai {
   border-width: 0 0 16px 20px;
   border-color: transparent transparent #ffffff transparent;
 }
 
 .message__decoration_type_user {
-  align-self: flex-end;
-  width: 0;
-  height: 0;
-  border-style: solid;
   border-width: 0px 20px 16px 0px;
   border-color: transparent transparent #faf2ff transparent;
+}
+
+.message__copy-button {
+  width: 24px;
+  height: 24px;
+  margin: 0 0 0 12px;
+  border: none;
+  cursor: pointer;
+  background-image: url(../../../../images/copy-button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: inherit;
 }
 
 .message__time {
