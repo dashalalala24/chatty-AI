@@ -1,4 +1,4 @@
-import { BaseSyntheticEvent, FC } from "react";
+import { BaseSyntheticEvent, FC, useState } from "react";
 import "./Input.css";
 import { useAppDispatch } from "../../../../services/redux/reduxHooks";
 import {
@@ -13,6 +13,7 @@ export interface IChatMessage {
 }
 
 const Input: FC = () => {
+  const [inputValue, setInputValue] = useState('')
   const dispatch = useAppDispatch();
 
   // function checkRes(res: any) {
@@ -67,11 +68,15 @@ const Input: FC = () => {
         className="input__field"
         type="text"
         placeholder="Введите Ваш запрос здесь"
+        value={inputValue}
+        onChange={(evt) => setInputValue(evt.target.value)}
       />
-      <div className="input__buttons">
-        <button className="input__delete-button" />
-        <button className="input__submit-button" />
-      </div>
+      { inputValue !== "" ? (
+        <div className="input__buttons">
+          <button className="input__delete-button" />
+          <button className="input__submit-button" />
+        </div>
+      ) : null }
     </form>
   );
 };

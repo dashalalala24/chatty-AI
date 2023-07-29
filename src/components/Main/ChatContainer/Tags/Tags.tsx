@@ -12,9 +12,9 @@ const Tags:FC = () => {
   return (
     <div className='tags__container' >
       {(tags.length !== 0) ? (
-        tags?.map((tagText: any) => {
+        tags?.map((tagText: any, index: any) => {
           return (
-            <div className='tags__message'>
+            <div className='tags__message' key={index}>
               <p className='tags__text'>{tagText}</p>
             </div>
           )

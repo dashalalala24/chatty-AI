@@ -29,22 +29,39 @@
   justify-content: space-between;
 }
 
+/* .header__mainselection {
+
+} */
+
+.header__select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0 none;
+  margin: 0 17px 0 0;
+  cursor: pointer;
+}
+
+.header__select:active {
+  width: 97px;
+  text-align: center;
+  border: 1px;
+  border-radius: 1px;
+}
+
+.header__select:hover {
+  color: #B821FF;
+}
+
 .header__language {
   padding: 0;
-  border: none;
-  margin: 0 17px 0 0;
   background-color: transparent;
-  cursor: pointer;
   color: rgba(34, 34, 34, 1);
   font-family: "Open Sans", "Inter", "Arial", "Helvetica", sans-serif;
   font-size: 14px;
   line-height: 19px;
   font-style: normal;
   font-weight: 600;
-}
-
-.header__language:hover {
-  color: #B821FF;
 }
 
 .header__link {

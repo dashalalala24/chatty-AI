@@ -4,12 +4,6 @@ import './Header.css';
 import headerLogo from '../../images/header-logo.svg';
 
 const Header:FC = () => {
-  const [language, setLanguage] = useState('RU');
-
-  function languageChange() {
-    language === 'RU' ? setLanguage('EN') : setLanguage('RU');
-  }
-
   return (
     <header className='header' >
       <img className='header__logo' src={headerLogo} alt='Логотип'/>
@@ -20,7 +14,12 @@ const Header:FC = () => {
           </li>
         </nav>
         <div className='header__buttons'>
-          <button className='header__language' onClick={languageChange}>{language}</button>
+          <div className='header__mainselection'>
+            <select className='header__select' >
+              <option className='header__language' value="RU">RU</option>
+              <option className='header__language' value="EN">EN</option>
+            </select>
+          </div>
           <button className='header__profile' />
         </div>
       </div>
