@@ -28,7 +28,7 @@ const initialState: IChat = {
 };
 
 export const getVoiceToText = createAsyncThunk(
-  "chat/getTranscriptionDone",
+  "@@chat/getTranscriptionDone",
   async (taskId: string) => {
     const response: any = await getTranscriptionDone(taskId);
     console.log("getVoiceToText response.data", response.result);
@@ -37,7 +37,7 @@ export const getVoiceToText = createAsyncThunk(
 );
 
 export const getAnswer = createAsyncThunk(
-  "chat/fetchGetAIAnswer",
+  "@@chat/fetchGetAIAnswer",
   async (data: string | unknown) => {
     const response = await fetchGetAIAnswer(data);
     console.log(response.choices[0].message.content);

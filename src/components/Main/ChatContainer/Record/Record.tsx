@@ -16,6 +16,12 @@ import { createFormData } from "../../../../utils/utils";
 
 const Record: FC = () => {
   const dispatch = useAppDispatch();
+
+  const currentLanguage = useAppSelector(
+    (state) => state.language.currentLanguage
+  );
+  const language = useAppSelector((state) => state.language.language);
+
   const isRecording = useAppSelector((state) => state.isRecording);
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -52,7 +58,9 @@ const Record: FC = () => {
         disabled={isDisabled}
       />
       <h1 className="record__title">
-        {isRecording ? "Слушаю..." : "Помогу в работе. Только спроси"}
+        {isRecording
+          ? language[currentLanguage].recordingStarted
+          : language[currentLanguage].recordingStopped}
       </h1>
     </div>
   );

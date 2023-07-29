@@ -12,12 +12,14 @@ import {
   REGISTER,
 } from "redux-persist";
 
-import { chatReducer } from "./slices/chat/chat";
 import { isRecordingReducer } from "./slices/isRecording/isRecording";
+import { chatReducer } from "./slices/chat/chat";
+import { languageReducer } from "./slices/language/language";
 
 const rootReducer = combineReducers({
-  chat: chatReducer,
   isRecording: isRecordingReducer,
+  chat: chatReducer,
+  language: languageReducer,
 });
 
 const persistConfig = {

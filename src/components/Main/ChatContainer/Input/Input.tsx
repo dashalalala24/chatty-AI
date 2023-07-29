@@ -1,6 +1,9 @@
 import { BaseSyntheticEvent, FC } from "react";
 import "./Input.css";
-import { useAppDispatch } from "../../../../services/redux/reduxHooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../services/redux/reduxHooks";
 import {
   addTextQuestion,
   getAnswer,
@@ -14,6 +17,10 @@ export interface IChatMessage {
 
 const Input: FC = () => {
   const dispatch = useAppDispatch();
+  const currentLanguage = useAppSelector(
+    (state) => state.language.currentLanguage
+  );
+  const language = useAppSelector((state) => state.language.language);
 
   const submitQuestion = (e: BaseSyntheticEvent) => {
     e.preventDefault();
@@ -43,7 +50,7 @@ const Input: FC = () => {
       <input
         className="input__field"
         type="text"
-        placeholder="Введите Ваш запрос здесь"
+        placeholder={language[currentLanguage].inputPlaceholder}
       />
     </form>
   );
