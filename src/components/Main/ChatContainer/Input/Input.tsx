@@ -2,7 +2,7 @@ import { BaseSyntheticEvent, FC } from "react";
 import "./Input.css";
 import { useAppDispatch } from "../../../../services/redux/reduxHooks";
 import {
-  addInputQuestion,
+  addTextQuestion,
   getAnswer,
 } from "../../../../services/redux/slices/chat/chat";
 
@@ -24,7 +24,7 @@ const Input: FC = () => {
       const date = new Date().toLocaleString();
 
       dispatch(
-        addInputQuestion({ text: inputValue, owner: "user", createdAt: date })
+        addTextQuestion({ text: inputValue, owner: "user", createdAt: date })
       );
       e.target.reset();
       dispatch(getAnswer(inputValue))

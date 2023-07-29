@@ -47,7 +47,6 @@ export function postPostUserAudio(data: FormData) {
 export const getTaskID = async (data: FormData) => {
   const response = await postPostUserAudio(data);
   if (response.code === 10000) {
-    console.log(response.taskId);
     return response.taskId;
   }
 };
@@ -68,14 +67,11 @@ export const getTranscriptionDone = async (taskId: string) => {
   return await getTranscriptionResult(taskId).then(
     (result) =>
       new Promise((resolve, reject) => {
-        console.log("promise result", result);
         if (result.code === 11000) {
-          console.log("getTranscriptionDone if result.code === 11000", result);
           resolve(result);
         }
         if (result.code === 11001) {
           // продолжаем запрашивать готовую транскрипцию
-          console.log("getTranscriptionDone if result.code === 11001", result);
           let counter = 0;
           let timer: any = null;
 
@@ -85,7 +81,6 @@ export const getTranscriptionDone = async (taskId: string) => {
             // ждем ответ максимум в течении 40 секунд
             if (counter > 39) {
               clearInterval(timer);
-              console.log("stopRepeatIfNeeded counter > 15", result);
               reject(new Error("Timeout for transcription exceeded"));
             }
           };
@@ -95,16 +90,13 @@ export const getTranscriptionDone = async (taskId: string) => {
               .then((res) => {
                 // если 11000 - готово
                 if (res.code === 11000) {
-                  console.log("timer res.code === 11000", res);
                   clearInterval(timer);
                   return resolve(res);
                 } else if (res.code === 11001) {
-                  console.log("timer res.code === 11001", res);
                   // 11001 - продолжаем запрашивать
                   stopRepeatIfNeeded();
                 } else {
                   // любой другой статус, значит что-то не то с голосовым файлом
-                  console.log("ошибка перевода голоса в текст: " + res.code);
                   reject(
                     new Error("ошибка перевода голоса в текст: ", res.code)
                   );
@@ -115,7 +107,6 @@ export const getTranscriptionDone = async (taskId: string) => {
               });
           }, 1000);
         } else {
-          console.log("getTranscriptionDone ошибка");
           reject(new Error(result.error.message));
         }
 
