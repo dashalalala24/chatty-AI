@@ -13,15 +13,19 @@ import {
 } from "redux-persist";
 
 import { chatReducer } from "./slices/chat/chat";
+import { isRecordingReducer } from "./slices/isRecording/isRecording";
 
 const rootReducer = combineReducers({
   chat: chatReducer,
+  isRecording: isRecordingReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["isRecording"],
 };
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({

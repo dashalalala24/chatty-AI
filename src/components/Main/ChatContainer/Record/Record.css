@@ -1,0 +1,58 @@
+.record {
+  z-index: 2;
+}
+
+.record__button {
+  padding: 16px;
+  margin: 10px 0 16px;
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 24px;
+  background-color: #fff;
+  background-image: url(../../../../images/mic-icon-black.svg);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  transition: width 0.3s, height 0.3s, background-image 0.3s, margin 0.3s,
+    background-size 0.3s;
+}
+
+.record__button_active {
+  background-image: url(../../../../images/mic-icon-violet.svg);
+  background-size: 40px;
+  margin: 5px 0 11px;
+  width: 72px;
+  height: 72px;
+}
+
+.record__button:hover {
+  background-size: 40px;
+  margin: 5px 0 11px;
+  width: 72px;
+  height: 72px;
+}
+
+.record__button:disabled {
+  background-color: #e9e9e9;
+  cursor: not-allowed;
+  background-image: url(../../../../images/mic-icon-disabled.svg);
+}
+
+.record__button:disabled:hover {
+  background-size: 30px;
+  width: 62px;
+  height: 62px;
+  margin: 10px 0 16px;
+}
+
+.record__title {
+  margin: 0;
+  /* padding: 16px 0 0; */
+  font-family: "Open Sans";
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: 400;
+}
