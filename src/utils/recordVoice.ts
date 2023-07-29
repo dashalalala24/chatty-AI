@@ -1,0 +1,34 @@
+import MicRecorder from "mic-recorder-to-mp3";
+import { SyntheticEvent } from "react";
+
+const recorder = new MicRecorder({
+  bitRate: 128,
+});
+
+export function startRecording() {
+  recorder
+    .start()
+    .then(() => {
+      console.log("recorder started");
+    })
+    .catch((e: SyntheticEvent) => {
+      console.error(e);
+    });
+}
+
+export async function stopRecording() {
+  return recorder
+    .stop()
+    .getMp3()
+    .then(([buffer, blob]: any) => {
+      const file = new File(buffer, "userVoiceQuestion.mp3", {
+        type: blob.type,
+      });
+      console.log(file);
+      return file;
+    })
+    .catch((e: SyntheticEvent) => {
+      alert("We could not retrieve your message");
+      console.log(e);
+    });
+}

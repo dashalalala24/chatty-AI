@@ -19,6 +19,8 @@ jobs:
           npm run-script build
         env:
           REACT_APP_OPEN_AI_API_KEY: ${{ secrets.REACT_APP_OPEN_AI_API_KEY }}
+          REACT_APP_SPEECH_FLOW_KEY_ID: ${{ secrets.REACT_APP_SPEECH_FLOW_KEY_ID }}
+          REACT_APP_SPEECH_FLOW_KEY_SECRET: ${{ secrets.REACT_APP_SPEECH_FLOW_KEY_SECRET }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3

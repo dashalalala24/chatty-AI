@@ -5,17 +5,19 @@ import { useAppSelector } from "../../../../services/redux/reduxHooks";
 import "./Chat.css";
 import Message from "../Message/Message";
 import MessageLoader from "../Message/MessageLoader/MessageLoader";
-import Tags from "../Tags/Tags";
+import Tag from "../Tag/Tag";
 
 const Chat: FC = () => {
+  const currentLanguage = useAppSelector(
+    (state) => state.language.currentLanguage
+  );
+  const language = useAppSelector((state) => state.language.language);
+
   const chatMessages = useAppSelector((state) => state.chat.chatMessages);
-  console.log(chatMessages);
-  const fetchAIAnswerStatus = useAppSelector((state) => state.chat.status);
-  console.log(fetchAIAnswerStatus);
+  const checkStatus = useAppSelector((state) => state.chat.status);
 
   const date = new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString().slice(0, 5);
-  console.log("time", time);
 
   return (
     <div className="chat">
@@ -37,44 +39,45 @@ const Chat: FC = () => {
           );
         })
       ) : (
-        <Message
-          text={
-            // "Привет! Я - ChattyAI, твой голосовой помощник"
-            <>
-              <p className="message__paragraph">
-                Привет! Я - ChattyAI, твой голосовой помощник
-              </p>
-              <p className="message__paragraph">
-                Я готов помочь тебе с чем угодно, что связано с твоей работой.
-                Не забывай входить в свой аккаунт или{" "}
-                <Link to={"/"} className="message__link">
-                  зарегистрируйся
-                </Link>{" "}
-                - наша беседа сохранится и ты не потеряешь ничего важного!
-              </p>
-              <p className="message__paragraph">
-                Я с радостью исследую разные идеи, чтобы поддержать тебя. Но
-                помни, я могу отклонить неуместные запросы Выражай свои мысли
-                понятно и ясно, и не стесняйся задавать уточняющие вопросы.
-                Давай начнем! Жми на микрофон, спрашивай и я помогу!
-              </p>
-              <p className="message__paragraph">
-                Выражай свои мысли понятно и ясно, и не стесняйся задавать
-                уточняющие вопросы. Давай начнем! Жми на микрофон, спрашивай и я
-                помогу!
-              </p>
-            </>
-          }
-          owner="ai"
-          createdAt={time}
-          // defaultMessage={true}
-        />
+        <>
+          <Message
+            text={
+              <>
+                <p className="message__paragraph">
+                  {language[currentLanguage].defaultMessageForNewUser.part_1}
+                </p>
+                <p className="message__paragraph">
+                  <Link to={"/"} className="message__link">
+                    {language[currentLanguage].textSignUp}
+                  </Link>
+                  {language[currentLanguage].or}
+                  <Link to={"/"} className="message__link">
+                    {language[currentLanguage].textSignIn}
+                  </Link>{" "}
+                  {language[currentLanguage].defaultMessageForNewUser.part_2}
+                </p>
+                <p className="message__paragraph">
+                  {language[currentLanguage].defaultMessageForNewUser.part_3}
+                </p>
+                <p className="message__paragraph">
+                  {language[currentLanguage].defaultMessageForNewUser.part_4}
+                </p>
+              </>
+            }
+            owner="ai"
+            createdAt={time}
+            // defaultMessage={true}
+          />
+          <div className="chat__tags">
+            {language[currentLanguage].exampleQuestions.map((question) => {
+              return <Tag key={question} text={question} />;
+            })}
+            {/* <button className="chat__tags-button"></button> */}
+          </div>
+        </>
       )}
-      {fetchAIAnswerStatus === "pending" ? (
-        <MessageLoader owner={"ai"} />
-      ) : null}
-      {/* {fetchUserQuestionStatus === 'pending'? <MessageLoader owner={'user'}/>: null} */}
-      <Tags />
+      {checkStatus === "aiPending" ? <MessageLoader owner={"ai"} /> : null}
+      {checkStatus === "userPending" ? <MessageLoader owner={"user"} /> : null}
     </div>
   );
 };
