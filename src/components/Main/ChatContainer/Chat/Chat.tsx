@@ -5,6 +5,7 @@ import { useAppSelector } from "../../../../services/redux/reduxHooks";
 import "./Chat.css";
 import Message from "../Message/Message";
 import MessageLoader from "../Message/MessageLoader/MessageLoader";
+import Tags from "../Tags/Tags";
 
 const Chat: FC = () => {
   const chatMessages = useAppSelector((state) => state.chat.chatMessages);
@@ -68,6 +69,7 @@ const Chat: FC = () => {
       )}
       {checkStatus === "aiPending" ? <MessageLoader owner={"ai"} /> : null}
       {checkStatus === "userPending" ? <MessageLoader owner={"user"} /> : null}
+      <Tags />
     </div>
   );
 };
