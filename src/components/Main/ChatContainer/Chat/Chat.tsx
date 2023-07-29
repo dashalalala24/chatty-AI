@@ -15,6 +15,7 @@ const Chat: FC = () => {
 
   const chatMessages = useAppSelector((state) => state.chat.chatMessages);
   const checkStatus = useAppSelector((state) => state.chat.status);
+  const lastMessage = chatMessages[chatMessages.length - 1]?.text;
 
   const date = new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString().slice(0, 5);
@@ -30,7 +31,7 @@ const Chat: FC = () => {
               text={message.text}
               owner={message.owner}
               createdAt={message.createdAt.slice(12, 17)}
-              lastMessage={
+              isLastMessage={
                 chatMessages.indexOf(message) === chatMessages.length - 1
                   ? true
                   : false
@@ -68,14 +69,24 @@ const Chat: FC = () => {
             createdAt={time}
             // defaultMessage={true}
           />
-          <div className="chat__tags">
-            {language[currentLanguage].exampleQuestions.map((question) => {
-              return <Tag key={question} text={question} />;
-            })}
-            {/* <button className="chat__tags-button"></button> */}
-          </div>
         </>
       )}
+      {chatMessages.length &&
+      checkStatus !== "aiPending" &&
+      checkStatus !== "userPending" ? (
+        <div className="chat__tags">
+          {language[currentLanguage].nextOptions.map((option) => {
+            return <Tag key={option} text={option} answer={lastMessage} />;
+          })}
+        </div>
+      ) : !chatMessages.length ? (
+        <div className="chat__tags">
+          {language[currentLanguage].exampleQuestions.map((question) => {
+            return <Tag key={question} text={question} answer={question} />;
+          })}
+          {/* <button className="chat__tags-button"></button> */}
+        </div>
+      ) : null}
       {checkStatus === "aiPending" ? <MessageLoader owner={"ai"} /> : null}
       {checkStatus === "userPending" ? <MessageLoader owner={"user"} /> : null}
     </div>

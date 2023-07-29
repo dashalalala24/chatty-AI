@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IMessage {
   [key: string]: string;
@@ -14,6 +14,7 @@ interface textsToTranslate {
   inputPlaceholder: string;
   newChat: string;
   exampleQuestions: string[];
+  nextOptions: string[];
   textSignUp: string;
   textSignIn: string;
   or: string;
@@ -22,10 +23,12 @@ interface textsToTranslate {
 }
 
 interface LanguageState {
-  currentLanguage: "ru" | "en";
+  currentLanguage: "ru" | "en" | "fr";
   language: {
     ru: textsToTranslate;
     en: textsToTranslate;
+    fr: textsToTranslate;
+    // zh: textsToTranslate;
   };
 }
 const initialState: LanguageState = {
@@ -45,6 +48,7 @@ const initialState: LanguageState = {
         "Элементы договора аренды",
         "Регистрация товарного знака",
       ],
+      nextOptions: ["Ответь иначе", "Продолжай"],
       textSignUp: "Зарегистрируйся",
       textSignIn: "войди",
       or: " или ",
@@ -52,7 +56,7 @@ const initialState: LanguageState = {
         part_1:
           "Привет! Я — ChattyAI, твой голосовой помощник! Готов помочь с чем угодно, что связано с твоей работой.",
         part_2:
-          "в свой аккаунт — так наша беседа сохранится, и ничего важногоне потеряется!",
+          "в свой аккаунт — так наша беседа сохранится, и ничего важного не потеряется!",
         part_3:
           "Я с радостью исследую разные идеи, чтобы поддержать тебя. Но помни, я могу отклонить неуместные запросы.",
         part_4:
@@ -87,6 +91,7 @@ const initialState: LanguageState = {
         "Elements of a lease agreement",
         "Trademark registration",
       ],
+      nextOptions: ["Try again", "Go on"],
       textSignUp: "Sign up",
       textSignIn: "sign in",
       or: " or ",
@@ -115,6 +120,86 @@ const initialState: LanguageState = {
           "Let's get started, ask your question and I'll try to help the best I can!",
       },
     },
+    fr: {
+      help: "Aider",
+      logInButton: "Connexion",
+      history: "Histoire",
+      emptyHistory: "Aucune demande créée pour le moment",
+      recordingStarted: "J'écoute...",
+      recordingStopped: "Je vais vous aider. Il suffit de demander",
+      inputPlaceholder: "Veuillez entrer votre question",
+      newChat: "Nouvelle conversation",
+      exampleQuestions: [
+        "Modèle d'accord de non-divulgation",
+        "Éléments d'un contrat de bail",
+        "Dépôt de marque",
+      ],
+      nextOptions: ["Répondez autrement", "Continuez"],
+      textSignUp: "Inscrivez-vous",
+      textSignIn: "connectez-vous",
+      or: " ou ",
+      defaultMessageForNewUser: {
+        part_1:
+          "Bonjour! Je suis ChattyAI, votre assistant vocal ! Prêt à vous aider pour tout ce qui concerne votre travail.",
+        part_2:
+          "à votre compte – de cette façon, notre conversation sera enregistrée et rien d'important ne sera perdu !",
+        part_3:
+          "Je suis heureux d'explorer différentes idées pour vous soutenir. Mais n'oubliez pas que je peux refuser les demandes inappropriées.",
+        part_4:
+          "Exprimez vos pensées de manière claire et concise et n'hésitez pas à poser des questions de clarification. Commençons! Cliquez sur le microphone et je vous aiderai!",
+      },
+      helpMessage: {
+        part_1:
+          "Bonjour! Je suis ChattyAI, un assistant vocal d'intelligence artificielle à usage professionnel. Mon objectif est d'aider à rationaliser les flux de travail et à les rendre plus efficaces.",
+        part_2:
+          "Lorsque vous posez une question avec votre voix, je donne la réponse sous forme de texte. Cliquez simplement sur l'icône du microphone, dites votre question et j'essaierai de vous aider.",
+        part_3:
+          "Gardez à l'esprit que j'utilise la technologie ChatGPT d'OpenAI, donc les réponses peuvent être fictives et ne reflètent pas ma propre opinion. Mais ne vous inquiétez pas, je ferai toujours de mon mieux pour vous être utile !",
+        part_4:
+          'Si ma réponse ne vous satisfait pas, ou si vous souhaitez plus d\'informations, cliquez simplement sur le bouton "Réessayer" et j\'essaierai de donner une nouvelle réponse. Et si vous avez aimé la réponse et que vous voulez en savoir plus, cliquez sur "Continuer".',
+        part_5:
+          "De plus, j'ai un historique des demandes où vous pouvez trouver nos conversations précédentes si nécessaire. Et rappelez-vous, pour enregistrer notre conversation, il est préférable de vous inscrire ou de vous connecter à votre compte.",
+        part_6:
+          "Commençons, posez votre question et j'essaierai de vous aider du mieux que je peux !",
+      },
+    },
+    // zh: {
+    //   help: "帮助",
+    //   logInButton: "登录",
+    //   history: "搜索记录",
+    //   emptyHistory: "还没有创建请求",
+    //   recordingStarted: "在听...",
+    //   recordingStopped: "我帮你。 只是问",
+    //   inputPlaceholder: "请输入你的问题",
+    //   newChat: "新聊天",
+    //   exampleQuestions: ["保密协议模板", "租赁协议的要素", "商标注册"],
+    //   nextOptions: ["不同地回答", "继续"],
+    //   textSignUp: "请注册",
+    //   textSignIn: "登录",
+    //   or: "或者",
+    //   defaultMessageForNewUser: {
+    //     part_1:
+    //       "你好！ 我是ChattyAI, 你的语音助手! 准备好为你的工作相关的任何事情提供帮助。",
+    //     part_2: " - 这样我们的对话就会被保存，并且不会丢失任何重要的内容！",
+    //     part_3:
+    //       "我很乐意探索不同的想法来支持你。 但请记住，我可以拒绝不适当的请求。",
+    //     part_4:
+    //       "清晰简洁地表达你的想法，并随时提出澄清问题。 开始吧！ 点击麦克风，我来帮忙！",
+    //   },
+    //   helpMessage: {
+    //     part_1:
+    //       "你好！ 我是ChattyAI, 一个专业用途的人工智能语音助手。 我的目标是帮助简化工作流程并提高其效率。",
+    //     part_2:
+    //       "当你用声音提问时，我会用文字给出答案。 只需单击麦克风图标，说出你的问题，我会尽力提供帮助。",
+    //     part_3:
+    //       "请记住，我正在使用 OpenAI 的 ChatGPT 技术，因此答案可能是虚构的，并不反映我自己的观点。 不过别担心，我会尽力帮助你的！",
+    //     part_4:
+    //       "如果我的回答不能让你满意，或者你想了解更多信息，只需单击“重试”按钮，我将尝试给出新的答案。 如果你喜欢这个答案并想了解更多信息，请单击“继续”",
+    //     part_5:
+    //       "另外，我有一个请求历史记录，如果需要，你可以在其中找到我们之前的对话。 请记住，要保存我们的对话，最好注册或登录你的帐户。",
+    //     part_6: "让我们开始吧，提出你的问题，我会尽力提供帮助！",
+    //   },
+    // },
   },
 };
 

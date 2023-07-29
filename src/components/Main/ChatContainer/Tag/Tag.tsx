@@ -8,9 +8,10 @@ import {
 
 interface ITag {
   text: string;
+  answer: string;
 }
 
-const Tag: FC<ITag> = ({ text }) => {
+const Tag: FC<ITag> = ({ text, answer }) => {
   const dispatch = useAppDispatch();
 
   return (
@@ -19,7 +20,7 @@ const Tag: FC<ITag> = ({ text }) => {
       onClick={() => {
         dispatch(
           addTextQuestion({
-            text: text,
+            text: answer,
             owner: "user",
             createdAt: new Date().toLocaleString(),
           })

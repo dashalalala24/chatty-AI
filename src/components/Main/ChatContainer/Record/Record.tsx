@@ -31,7 +31,7 @@ const Record: FC = () => {
       stopRecording()
         .then((data: File) => {
           setIsDisabled(true);
-          return createFormData(data);
+          return createFormData(currentLanguage, data);
         })
         .then((data: FormData) => getTaskID(data))
         .then((taskId) => {

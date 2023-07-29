@@ -9,7 +9,6 @@ const speechFlowkeySecret = process.env.REACT_APP_SPEECH_FLOW_KEY_SECRET;
 
 function checkRes(res: any) {
   if (res.ok) {
-    console.log("res.ok");
     return res.json();
   } else {
     console.log("ошибка в checkRes");

@@ -2,22 +2,36 @@ import { FC, useState } from "react";
 import "./Sidebar.css";
 import RequestMessage from "./RequestMessage/RequestMessage";
 import HistoryInput from "./HistoryInput/HistoryInput";
-import { useAppSelector } from "../../../services/redux/reduxHooks";
-
-const messages = [
-  "Как зарегистрировать право собственности на новую квартиру в РФ?",
-  "Как узаконить перепланировку если площадь ванной комнаты была увеличена за счет коридора в России?",
-  "Как узаконить перепланировку если площадь ванной комнаты была увеличена за счет коридора в России?",
-];
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../services/redux/reduxHooks";
+import {
+  IChatMessage,
+  resetChat,
+} from "../../../services/redux/slices/chat/chat";
 
 const Sidebar: FC = () => {
+  const dispatch = useAppDispatch();
   const currentLanguage = useAppSelector(
     (state) => state.language.currentLanguage
   );
   const language = useAppSelector((state) => state.language.language);
 
+  const chatMessages = useAppSelector((state) => state.chat.chatMessages);
   const date = new Date().toLocaleDateString();
   const [isSearchButtonClicked, setIsSearchButtonClicked] = useState(false);
+
+  const userMessages = chatMessages.reduce(function (
+    messagesArray: string[],
+    message: IChatMessage
+  ) {
+    if (message.owner === "user") {
+      messagesArray.push(message.text);
+    }
+    return messagesArray;
+  },
+  []);
 
   return (
     <section className="sidebar">
@@ -39,12 +53,10 @@ const Sidebar: FC = () => {
         />
       </div>
       <section className="sidebar__history-container">
-        {isSearchButtonClicked && messages.length !== 0 ? (
-          <HistoryInput />
-        ) : null}
-        <p className="sidebar__date">{date}</p>
-        {messages.length !== 0 ? (
-          messages?.map((text, index) => {
+        {isSearchButtonClicked && userMessages.length ? <HistoryInput /> : null}
+        {userMessages.length ? <p className="sidebar__date">{date}</p> : null}
+        {userMessages.length ? (
+          userMessages.map((text, index) => {
             return <RequestMessage text={text} key={index} />;
           })
         ) : (
@@ -53,7 +65,10 @@ const Sidebar: FC = () => {
           </h3>
         )}
       </section>
-      <button className="sidebar__newchat-button">
+      <button
+        className="sidebar__newchat-button"
+        onClick={() => dispatch(resetChat())}
+      >
         {language[currentLanguage].newChat}
       </button>
     </section>
