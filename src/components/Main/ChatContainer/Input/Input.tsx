@@ -68,6 +68,10 @@ const Input: FC = () => {
         type="text"
         placeholder="Введите Ваш запрос здесь"
       />
+      <div className="input__buttons">
+        <button className="input__delete-button" />
+        <button className="input__submit-button" />
+      </div>
     </form>
   );
 };
