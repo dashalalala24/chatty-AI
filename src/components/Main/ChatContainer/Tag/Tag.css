@@ -1,0 +1,26 @@
+.tag {
+  padding: 8px 16px;
+  min-width: max-content;
+  border: 1px solid #9400d9;
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 17px;
+  font-family: "Lato";
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tag:hover {
+  background-color: #b821ff;
+}
+
+.tag:active {
+  color: #9400d9;
+}
+
+.tag:disabled {
+  color: #b6b6b6;
+  border: 1px solid #b6b6b6;
+}

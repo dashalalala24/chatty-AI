@@ -50,7 +50,7 @@ const chatSlice = createSlice({
   initialState,
   reducers: {
     resetChat: () => initialState,
-    addInputQuestion: (state, action) => {
+    addTextQuestion: (state, action) => {
       state.chatMessages = [...state.chatMessages, action.payload];
     },
   },
@@ -94,6 +94,6 @@ const chatSlice = createSlice({
   },
 });
 
-export const { resetChat, addInputQuestion } = chatSlice.actions;
+export const { resetChat, addTextQuestion } = chatSlice.actions;
 
 export const chatReducer = chatSlice.reducer;
