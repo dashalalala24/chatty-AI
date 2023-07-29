@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/chatty-AI/static/css/main.724a2586.css",
-    "main.js": "/chatty-AI/static/js/main.9a1383b7.js",
+    "main.css": "/chatty-AI/static/css/main.47695515.css",
+    "main.js": "/chatty-AI/static/js/main.0693b806.js",
     "static/media/Lato-Black.ttf": "/chatty-AI/static/media/Lato-Black.0f56360fd2c505dd13fa.ttf",
     "static/media/Lato-Regular.ttf": "/chatty-AI/static/media/Lato-Regular.2b7b7f6c8554ad96436b.ttf",
     "static/media/Lato-Bold.ttf": "/chatty-AI/static/media/Lato-Bold.0baf4e4829ca0a3e1e5c.ttf",
@@ -18,6 +18,8 @@
     "static/media/OpenSans-Regular.ttf": "/chatty-AI/static/media/OpenSans-Regular.9a6cfa5890d7f3eef585.ttf",
     "static/media/OpenSans-Regular.woff": "/chatty-AI/static/media/OpenSans-Regular.177d23bb963a17a1ada6.woff",
     "static/media/header-logo.svg": "/chatty-AI/static/media/header-logo.76c188fc002070136bf495e88c7a1dca.svg",
+    "static/media/search-button-hovered.svg": "/chatty-AI/static/media/search-button-hovered.ee504869406f0e8f4881.svg",
+    "static/media/chevron-right-hovered.svg": "/chatty-AI/static/media/chevron-right-hovered.08c992a30faff6546b3c.svg",
     "static/media/sidebar-recyclebinicon_grey.svg": "/chatty-AI/static/media/sidebar-recyclebinicon_grey.b50f65dd7df221a375c1.svg",
     "static/media/sidebar-recyclebinicon_red.svg": "/chatty-AI/static/media/sidebar-recyclebinicon_red.39474b788e7a0e180370.svg",
     "static/media/copy-button.svg": "/chatty-AI/static/media/copy-button.f2fe0dae6d6ad4343bda.svg",
@@ -30,11 +32,12 @@
     "static/media/mic-icon-black.svg": "/chatty-AI/static/media/mic-icon-black.7bb9cfaafd2264fbbd78.svg",
     "static/media/search-button.svg": "/chatty-AI/static/media/search-button.1e4454b29e64f183b5ae.svg",
     "static/media/newchat-button.svg": "/chatty-AI/static/media/newchat-button.be025ed7d19d9137a21a.svg",
-    "main.724a2586.css.map": "/chatty-AI/static/css/main.724a2586.css.map",
-    "main.9a1383b7.js.map": "/chatty-AI/static/js/main.9a1383b7.js.map"
+    "static/media/chevron-right.svg": "/chatty-AI/static/media/chevron-right.56bfc0bda8537ad7b20d.svg",
+    "main.47695515.css.map": "/chatty-AI/static/css/main.47695515.css.map",
+    "main.0693b806.js.map": "/chatty-AI/static/js/main.0693b806.js.map"
   },
   "entrypoints": [
-    "static/css/main.724a2586.css",
-    "static/js/main.9a1383b7.js"
+    "static/css/main.47695515.css",
+    "static/js/main.0693b806.js"
   ]
 }
