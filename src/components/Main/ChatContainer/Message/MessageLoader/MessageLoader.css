@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.message-loader_type_user {
+  align-self: flex-end;
+}
+
 .message-loader__container {
   width: 50px;
   height: 10px;

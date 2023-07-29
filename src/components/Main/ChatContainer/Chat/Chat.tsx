@@ -9,9 +9,7 @@ import Tags from "../Tags/Tags";
 
 const Chat: FC = () => {
   const chatMessages = useAppSelector((state) => state.chat.chatMessages);
-  console.log(chatMessages);
-  const fetchAIAnswerStatus = useAppSelector((state) => state.chat.status);
-  console.log(fetchAIAnswerStatus);
+  const checkStatus = useAppSelector((state) => state.chat.status);
 
   const date = new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString().slice(0, 5);
@@ -39,7 +37,6 @@ const Chat: FC = () => {
       ) : (
         <Message
           text={
-            // "Привет! Я - ChattyAI, твой голосовой помощник"
             <>
               <p className="message__paragraph">
                 Привет! Я - ChattyAI, твой голосовой помощник
@@ -70,10 +67,8 @@ const Chat: FC = () => {
           // defaultMessage={true}
         />
       )}
-      {fetchAIAnswerStatus === "pending" ? (
-        <MessageLoader owner={"ai"} />
-      ) : null}
-      {/* {fetchUserQuestionStatus === 'pending'? <MessageLoader owner={'user'}/>: null} */}
+      {checkStatus === "aiPending" ? <MessageLoader owner={"ai"} /> : null}
+      {checkStatus === "userPending" ? <MessageLoader owner={"user"} /> : null}
       <Tags />
     </div>
   );
