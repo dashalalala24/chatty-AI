@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/chatty-AI/static/css/main.dd8448a4.css",
-    "main.js": "/chatty-AI/static/js/main.5092e42a.js",
+    "main.css": "/chatty-AI/static/css/main.724a2586.css",
+    "main.js": "/chatty-AI/static/js/main.9a1383b7.js",
     "static/media/Lato-Black.ttf": "/chatty-AI/static/media/Lato-Black.0f56360fd2c505dd13fa.ttf",
     "static/media/Lato-Regular.ttf": "/chatty-AI/static/media/Lato-Regular.2b7b7f6c8554ad96436b.ttf",
     "static/media/Lato-Bold.ttf": "/chatty-AI/static/media/Lato-Bold.0baf4e4829ca0a3e1e5c.ttf",
@@ -24,15 +24,17 @@
     "static/media/calendar-day-hovered.svg": "/chatty-AI/static/media/calendar-day-hovered.0fc1d66026ac718a1e24.svg",
     "static/media/calendar-day.svg": "/chatty-AI/static/media/calendar-day.b1c47b4f78d4b9951c45.svg",
     "index.html": "/chatty-AI/index.html",
-    "static/media/button.svg": "/chatty-AI/static/media/button.57fe396d50cd1e64e972.svg",
+    "static/media/mic-icon-violet.svg": "/chatty-AI/static/media/mic-icon-violet.e5ff2f7553a4e019b2a4.svg",
+    "static/media/mic-icon-disabled.svg": "/chatty-AI/static/media/mic-icon-disabled.3029f4a62e0d790c4bcb.svg",
     "static/media/header-profile.svg": "/chatty-AI/static/media/header-profile.9b90fcc565b8759d42c1a3557413326a.svg",
+    "static/media/mic-icon-black.svg": "/chatty-AI/static/media/mic-icon-black.7bb9cfaafd2264fbbd78.svg",
     "static/media/search-button.svg": "/chatty-AI/static/media/search-button.1e4454b29e64f183b5ae.svg",
     "static/media/newchat-button.svg": "/chatty-AI/static/media/newchat-button.be025ed7d19d9137a21a.svg",
-    "main.dd8448a4.css.map": "/chatty-AI/static/css/main.dd8448a4.css.map",
-    "main.5092e42a.js.map": "/chatty-AI/static/js/main.5092e42a.js.map"
+    "main.724a2586.css.map": "/chatty-AI/static/css/main.724a2586.css.map",
+    "main.9a1383b7.js.map": "/chatty-AI/static/js/main.9a1383b7.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd8448a4.css",
-    "static/js/main.5092e42a.js"
+    "static/css/main.724a2586.css",
+    "static/js/main.9a1383b7.js"
   ]
 }
