@@ -41,10 +41,22 @@
   line-height: 19px;
   font-style: normal;
   font-weight: 600;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+.header__language::-ms-expand {
+  display: none;
 }
 
 .header__language:hover {
-  color: #B821FF;
+  color: #b821ff;
+}
+
+.header__language:focus {
+  outline: none;
 }
 
 .header__link {
@@ -56,14 +68,13 @@
   font-style: normal;
   font-weight: 400;
   color: rgba(42, 42, 42, 1);
-  ;
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.35s linear;
 }
 
 .header__link:hover {
-  color: #B821FF;
+  color: #b821ff;
 }
 
 .header__profile {
@@ -80,5 +91,5 @@
 }
 
 .header__profile:hover {
-  background-image: url(../../images/header-profile-hovered.svg)
+  background-image: url(../../images/header-profile-hovered.svg);
 }

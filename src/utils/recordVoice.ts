@@ -24,11 +24,9 @@ export async function stopRecording() {
       const file = new File(buffer, "userVoiceQuestion.mp3", {
         type: blob.type,
       });
-      console.log(file);
       return file;
     })
-    .catch((e: SyntheticEvent) => {
-      alert("We could not retrieve your message");
-      console.log(e);
+    .catch(() => {
+      console.log("We could not retrieve your message");
     });
 }

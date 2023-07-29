@@ -34,9 +34,7 @@ const Input: FC = () => {
         addTextQuestion({ text: inputValue, owner: "user", createdAt: date })
       );
       e.target.reset();
-      dispatch(getAnswer(inputValue))
-        .unwrap()
-        .then(() => console.log("dispatched input"));
+      dispatch(getAnswer(inputValue));
     }
   };
 
