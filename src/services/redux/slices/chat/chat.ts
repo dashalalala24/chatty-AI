@@ -31,7 +31,6 @@ export const getVoiceToText = createAsyncThunk(
   "@@chat/getTranscriptionDone",
   async (taskId: string) => {
     const response: any = await getTranscriptionDone(taskId);
-    console.log("getVoiceToText response.data", response.result);
     return cleanTranscriprion(response.result);
   }
 );
@@ -49,25 +48,26 @@ const chatSlice = createSlice({
   initialState,
   reducers: {
     resetChat: () => initialState,
-    addTextQuestion: (state, action) => {
+    addTextQuestion: (state, action: PayloadAction<IChatMessage>) => {
       state.chatMessages = [...state.chatMessages, action.payload];
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getVoiceToText.fulfilled, (state, action) => {
+      .addCase(
+        getVoiceToText.fulfilled,
+        (state, action: PayloadAction<string>) => {
+          const date = new Date().toLocaleString();
+          state.status = "fulfilled";
+          state.chatMessages.push({
+            text: action.payload,
+            owner: "user",
+            createdAt: date,
+          });
+        }
+      )
+      .addCase(getAnswer.fulfilled, (state, action: PayloadAction<string>) => {
         const date = new Date().toLocaleString();
-        console.log("date", date);
-        state.status = "fulfilled";
-        state.chatMessages.push({
-          text: action.payload,
-          owner: "user",
-          createdAt: date,
-        });
-      })
-      .addCase(getAnswer.fulfilled, (state, action) => {
-        const date = new Date().toLocaleString();
-        console.log("date", date);
         state.status = "fulfilled";
         state.chatMessages.push({
           text: action.payload,

@@ -4,6 +4,7 @@
   flex-direction: column;
   width: 278px;
   border-left: 0.5px solid rgba(0, 0, 0, 0.25);
+  font-family: "Open Sans";
 }
 
 .sidebar__nav {
@@ -16,7 +17,6 @@
 .sidebar__subtitle {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
   font-size: 26px;
   line-height: 35px;
   font-style: normal;
@@ -46,11 +46,11 @@
   margin: 24px 0;
   width: 100%;
   height: calc(100% - 76px);
+  overflow: scroll;
 }
 
 .sidebar__date {
   margin: 0;
-  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
   font-size: 14px;
   line-height: 19px;
   font-style: normal;
@@ -60,7 +60,6 @@
 
 .sidebar__history-subtitle {
   margin: 0;
-  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
   font-size: 16px;
   line-height: 22px;
   font-style: normal;
@@ -74,7 +73,7 @@
   height: 48px;
   border: none;
   border-radius: 12px;
-  font-family: 'Open Sans', 'Lato', 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-family: "Open Sans";
   font-size: 16px;
   line-height: 22px;
   font-style: normal;
@@ -91,4 +90,3 @@
 .sidebar__newchat-button:hover {
   opacity: 70%;
 }
-

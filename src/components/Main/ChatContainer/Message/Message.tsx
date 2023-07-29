@@ -64,13 +64,7 @@ const Message: FC<IMessage> = ({
           ></button>
         ) : null}
       </div>
-      <p
-        className={`message__time message__time_type_${owner} ${
-          isLastMessage ? "message__time_last" : ""
-        }`}
-      >
-        {createdAt}
-      </p>
+      <p className={`message__time message__time_type_${owner}`}>{createdAt}</p>
     </div>
   );
 };

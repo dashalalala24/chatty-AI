@@ -37,6 +37,7 @@ const Header: FC = () => {
             id="lang"
             name="lang"
             onChange={handleSelect}
+            defaultValue={currentLanguage}
           >
             <option value="ru">RU</option>
             <option value="en">EN</option>

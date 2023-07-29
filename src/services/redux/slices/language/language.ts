@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IMessage {
   [key: string]: string;
@@ -56,7 +56,7 @@ const initialState: LanguageState = {
         part_1:
           "Привет! Я — ChattyAI, твой голосовой помощник! Готов помочь с чем угодно, что связано с твоей работой.",
         part_2:
-          "в свой аккаунт — так наша беседа сохранится, и ничего важногоне потеряется!",
+          "в свой аккаунт — так наша беседа сохранится, и ничего важного не потеряется!",
         part_3:
           "Я с радостью исследую разные идеи, чтобы поддержать тебя. Но помни, я могу отклонить неуместные запросы.",
         part_4:

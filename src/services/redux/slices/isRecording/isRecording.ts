@@ -1,10 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const isRecordingSlice = createSlice({
   name: "@@isRecording",
   initialState: false,
   reducers: {
-    toggleRecordingStatus: (_, action) => action.payload,
+    toggleRecordingStatus: (_, action: PayloadAction<boolean>) =>
+      action.payload,
   },
 });
 
