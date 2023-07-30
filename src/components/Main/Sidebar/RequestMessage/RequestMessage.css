@@ -28,10 +28,10 @@
 
 .sidebar__recyclebin-fade {
   width: 66px;
-  height: 100%;
+  height: calc(100% + 24px);
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -12px;
+  right: -16px;
   z-index: 2;
   border-radius: 8px;
   background: linear-gradient(90deg, rgba(252, 252, 252, 0) 0%, #fcfcfc 54.69%);
