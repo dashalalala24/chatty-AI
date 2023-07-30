@@ -11,7 +11,6 @@ function checkRes(res: any) {
   if (res.ok) {
     return res.json();
   } else {
-    console.log("ошибка в checkRes");
     return Promise.reject(res);
   }
 }

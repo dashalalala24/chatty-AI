@@ -27,23 +27,22 @@ const Header: FC = () => {
       <img className="header__logo" src={headerLogo} alt="Логотип" />
       <div className="header__container">
         <nav className="header__nav">
-          <li>
-            <button
-              className="header__help"
-              onClick={() => {
-                const date = new Date().toLocaleString();
-                dispatch(
-                  addChatMessage({
-                    text: language[currentLanguage].helpMessage,
-                    owner: "system",
-                    createdAt: date,
-                  })
-                );
-              }}
-            >
-              {language[currentLanguage].help}
-            </button>
-          </li>
+          <button
+            aria-label="help"
+            className="header__help"
+            onClick={() => {
+              const date = new Date().toLocaleString();
+              dispatch(
+                addChatMessage({
+                  text: language[currentLanguage].helpMessage,
+                  owner: "system",
+                  createdAt: date,
+                })
+              );
+            }}
+          >
+            {language[currentLanguage].help}
+          </button>
         </nav>
         <div className="header__buttons">
           <select
@@ -59,7 +58,7 @@ const Header: FC = () => {
             <option value="zh">CH</option>
             {/* <option value="ar">AE</option> */}
           </select>
-          <button className="header__profile" />
+          <button aria-label="profile" className="header__profile" />
         </div>
       </div>
     </header>

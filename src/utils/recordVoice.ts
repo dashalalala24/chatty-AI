@@ -9,7 +9,7 @@ export function startRecording() {
   recorder
     .start()
     .then(() => {
-      console.log("recorder started");
+      console.log("Запись началась");
     })
     .catch((e: SyntheticEvent) => {
       console.error(e);
@@ -27,6 +27,6 @@ export async function stopRecording() {
       return file;
     })
     .catch(() => {
-      console.log("We could not retrieve your message");
+      console.log("Не удалось сделать запись голоса");
     });
 }
