@@ -1,4 +1,4 @@
-import { BaseSyntheticEvent, FC } from "react";
+import { BaseSyntheticEvent, FC, useState } from "react";
 import "./Input.css";
 import {
   useAppDispatch,
@@ -16,6 +16,7 @@ export interface IChatMessage {
 }
 
 const Input: FC = () => {
+  const [inputValue, setInputValue] = useState("");
   const dispatch = useAppDispatch();
   const currentLanguage = useAppSelector(
     (state) => state.language.currentLanguage
@@ -48,8 +49,16 @@ const Input: FC = () => {
       <input
         className="input__field"
         type="text"
+        value={inputValue}
+        onChange={(evt) => setInputValue(evt.target.value)}
         placeholder={language[currentLanguage].inputPlaceholder}
       />
+      {inputValue !== "" ? (
+        <div className="input__buttons">
+          <button className="input__delete-button" />
+          <button className="input__submit-button" />
+        </div>
+      ) : null}
     </form>
   );
 };
