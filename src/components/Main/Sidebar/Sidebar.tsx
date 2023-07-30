@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import "./Sidebar.css";
+import plusIcon from "../../../images/plus-icon.svg";
 import RequestMessage from "./RequestMessage/RequestMessage";
 import HistoryInput from "./HistoryInput/HistoryInput";
 import {
@@ -72,12 +73,13 @@ const Sidebar: FC = () => {
           </h3>
         )}
       </section>
-      <button
-        className="sidebar__newchat-button"
-        onClick={() => dispatch(resetChat())}
-      >
-        {language[currentLanguage].newChat}
-      </button>
+        <button
+          className="sidebar__newchat-button"
+          onClick={() => dispatch(resetChat())}
+        >
+          <p className="sidebar__button-text">{language[currentLanguage].newChat}</p>
+          <img className="sidebar__plus-icon" src={plusIcon} alt="plus"/>
+        </button>
     </section>
   );
 };
