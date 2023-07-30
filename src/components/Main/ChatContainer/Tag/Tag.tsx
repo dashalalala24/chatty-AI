@@ -5,6 +5,7 @@ import {
   addTextQuestion,
   getAnswer,
 } from "../../../../services/redux/slices/chat/chat";
+import { CURRENT_DATE } from "../../../../utils/constants";
 
 interface ITag {
   text: string;
@@ -22,7 +23,7 @@ const Tag: FC<ITag> = ({ text, answer }) => {
           addTextQuestion({
             text: answer,
             owner: "user",
-            createdAt: new Date().toLocaleString(),
+            createdAt: CURRENT_DATE,
           })
         );
         dispatch(getAnswer(text));

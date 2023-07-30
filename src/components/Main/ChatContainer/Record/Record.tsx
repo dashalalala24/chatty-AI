@@ -4,25 +4,28 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../../services/redux/reduxHooks";
-
 import { stopRecording, startRecording } from "../../../../utils/recordVoice";
-import { toggleRecordingStatus } from "../../../../services/redux/slices/isRecording/isRecording";
+import {
+  isRecordingSelector,
+  toggleRecordingStatus,
+} from "../../../../services/redux/slices/isRecording/isRecording";
 import {
   getAnswer,
   getVoiceToText,
 } from "../../../../services/redux/slices/chat/chat";
 import { getTaskID } from "../../../../services/redux/slices/chat/chatAPI";
 import { createFormData } from "../../../../utils/utils";
+import {
+  currentLanguageSelector,
+  languageSelector,
+} from "../../../../services/redux/slices/language/language";
 
 const Record: FC = () => {
   const dispatch = useAppDispatch();
+  const currentLanguage = useAppSelector(currentLanguageSelector);
+  const language = useAppSelector(languageSelector);
+  const isRecording = useAppSelector(isRecordingSelector);
 
-  const currentLanguage = useAppSelector(
-    (state) => state.language.currentLanguage
-  );
-  const language = useAppSelector((state) => state.language.language);
-
-  const isRecording = useAppSelector((state) => state.isRecording);
   const [isDisabled, setIsDisabled] = useState(false);
 
   function handleRecordClick() {

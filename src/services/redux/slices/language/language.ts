@@ -1,4 +1,5 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 
 interface IMessage {
   [key: string]: string;
@@ -12,6 +13,7 @@ interface textsToTranslate {
   recordingStarted: string;
   recordingStopped: string;
   inputPlaceholder: string;
+  historyPlaceholder: string;
   newChat: string;
   exampleQuestions: string[];
   nextOptions: string[];
@@ -28,7 +30,6 @@ interface LanguageState {
     ru: textsToTranslate;
     en: textsToTranslate;
     fr: textsToTranslate;
-    // zh: textsToTranslate;
   };
 }
 const initialState: LanguageState = {
@@ -42,6 +43,7 @@ const initialState: LanguageState = {
       recordingStarted: "Слушаю...",
       recordingStopped: "Помогу в работе. Только спроси",
       inputPlaceholder: "Введите Ваш запрос здесь",
+      historyPlaceholder: "Поиск по истории",
       newChat: "Новый чат",
       exampleQuestions: [
         "Как узаконить планировку",
@@ -85,6 +87,7 @@ const initialState: LanguageState = {
       recordingStarted: "Listening...",
       recordingStopped: "I'll help you. Just ask",
       inputPlaceholder: "Please enter your question",
+      historyPlaceholder: "Search in messages",
       newChat: "New chat",
       exampleQuestions: [
         "Non-disclosure agreement template",
@@ -128,6 +131,7 @@ const initialState: LanguageState = {
       recordingStarted: "J'écoute...",
       recordingStopped: "Je vais vous aider. Il suffit de demander",
       inputPlaceholder: "Veuillez entrer votre question",
+      historyPlaceholder: "Recherche par historique",
       newChat: "Nouvelle conversation",
       exampleQuestions: [
         "Modèle d'accord de non-divulgation",
@@ -171,6 +175,7 @@ const initialState: LanguageState = {
     //   recordingStarted: "在听...",
     //   recordingStopped: "我帮你。 只是问",
     //   inputPlaceholder: "请输入你的问题",
+    //   historyPlaceholder: "按历史搜索",
     //   newChat: "新聊天",
     //   exampleQuestions: ["保密协议模板", "租赁协议的要素", "商标注册"],
     //   nextOptions: ["不同地回答", "继续"],
@@ -216,3 +221,10 @@ const languageSlice = createSlice({
 export const { setLanguage } = languageSlice.actions;
 
 export const languageReducer = languageSlice.reducer;
+
+export const currentLanguageSelector = (
+  state: RootState
+): RootState["language"]["currentLanguage"] => state.language.currentLanguage;
+
+export const languageSelector = (state: RootState): LanguageState["language"] =>
+  state.language.language;

@@ -6,14 +6,16 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../services/redux/reduxHooks";
-import { setLanguage } from "../../services/redux/slices/language/language";
+import {
+  currentLanguageSelector,
+  languageSelector,
+  setLanguage,
+} from "../../services/redux/slices/language/language";
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
-  const currentLanguage = useAppSelector(
-    (state) => state.language.currentLanguage
-  );
-  const language = useAppSelector((state) => state.language.language);
+  const currentLanguage = useAppSelector(currentLanguageSelector);
+  const language = useAppSelector(languageSelector);
 
   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;

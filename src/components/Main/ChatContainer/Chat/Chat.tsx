@@ -1,31 +1,36 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 import { useAppSelector } from "../../../../services/redux/reduxHooks";
 
 import "./Chat.css";
 import Message from "../Message/Message";
 import MessageLoader from "../Message/MessageLoader/MessageLoader";
 import Tag from "../Tag/Tag";
+import DefaultMessage from "../DefaultMessage/DefaultMessage";
+import { CURRENT_DATE } from "../../../../utils/constants";
+import {
+  currentLanguageSelector,
+  languageSelector,
+} from "../../../../services/redux/slices/language/language";
+import {
+  chatStatusSelector,
+  messagesSelector,
+} from "../../../../services/redux/slices/chat/chat";
 
 const Chat: FC = () => {
-  const currentLanguage = useAppSelector(
-    (state) => state.language.currentLanguage
-  );
-  const language = useAppSelector((state) => state.language.language);
+  const currentLanguage = useAppSelector(currentLanguageSelector);
+  const language = useAppSelector(languageSelector);
 
-  const chatMessages = useAppSelector((state) => state.chat.chatMessages);
-  const checkStatus = useAppSelector((state) => state.chat.status);
+  const chatMessages = useAppSelector(messagesSelector);
+  const checkStatus = useAppSelector(chatStatusSelector);
+
   // const lastMessage = chatMessages[chatMessages?.length - 1]?.text;
   const getLastMessage = () => {
     return chatMessages ? chatMessages[chatMessages.length - 1].text : "";
   };
 
-  const date = new Date().toLocaleDateString();
-  const time = new Date().toLocaleTimeString().slice(0, 5);
-
   return (
     <div className="chat">
-      <p className="chat__date">{date}</p>
+      <p className="chat__date">{CURRENT_DATE}</p>
       {chatMessages?.length ? (
         chatMessages?.map((message) => {
           return (
@@ -43,36 +48,7 @@ const Chat: FC = () => {
           );
         })
       ) : (
-        <>
-          <Message
-            text={
-              <>
-                <p className="message__paragraph">
-                  {language[currentLanguage].defaultMessageForNewUser.part_1}
-                </p>
-                <p className="message__paragraph">
-                  <Link to={"/"} className="message__link">
-                    {language[currentLanguage].textSignUp}
-                  </Link>
-                  {language[currentLanguage].or}
-                  <Link to={"/"} className="message__link">
-                    {language[currentLanguage].textSignIn}
-                  </Link>{" "}
-                  {language[currentLanguage].defaultMessageForNewUser.part_2}
-                </p>
-                <p className="message__paragraph">
-                  {language[currentLanguage].defaultMessageForNewUser.part_3}
-                </p>
-                <p className="message__paragraph">
-                  {language[currentLanguage].defaultMessageForNewUser.part_4}
-                </p>
-              </>
-            }
-            owner="ai"
-            createdAt={time}
-            // defaultMessage={true}
-          />
-        </>
+        <DefaultMessage welcomeMessage={true} />
       )}
       {chatMessages?.length &&
       checkStatus !== "aiPending" &&

@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import "./Sidebar.css";
+import plusIcon from "../../../images/plus-icon.svg";
 import RequestMessage from "./RequestMessage/RequestMessage";
 import HistoryInput from "./HistoryInput/HistoryInput";
 import {
@@ -8,19 +9,21 @@ import {
 } from "../../../services/redux/reduxHooks";
 import {
   IChatMessage,
+  messagesSelector,
   resetChat,
 } from "../../../services/redux/slices/chat/chat";
-import plusIcon from "../../../images/plus-icon.svg";
+import { CURRENT_DATE } from "../../../utils/constants";
+import {
+  currentLanguageSelector,
+  languageSelector,
+} from "../../../services/redux/slices/language/language";
 
 const Sidebar: FC = () => {
   const dispatch = useAppDispatch();
-  const currentLanguage = useAppSelector(
-    (state) => state.language.currentLanguage
-  );
-  const language = useAppSelector((state) => state.language.language);
+  const currentLanguage = useAppSelector(currentLanguageSelector);
+  const language = useAppSelector(languageSelector);
+  const chatMessages = useAppSelector(messagesSelector);
 
-  const chatMessages = useAppSelector((state) => state.chat.chatMessages);
-  const date = new Date().toLocaleDateString();
   const [isSearchButtonClicked, setIsSearchButtonClicked] = useState(false);
 
   const userMessages = chatMessages?.reduce(function (
@@ -57,7 +60,9 @@ const Sidebar: FC = () => {
         {isSearchButtonClicked && userMessages?.length ? (
           <HistoryInput />
         ) : null}
-        {userMessages?.length ? <p className="sidebar__date">{date}</p> : null}
+        {userMessages?.length ? (
+          <p className="sidebar__date">{CURRENT_DATE}</p>
+        ) : null}
         {userMessages?.length ? (
           userMessages.map((text, index) => {
             return <RequestMessage text={text} key={index} />;

@@ -1,3 +1,15 @@
+@keyframes loadingFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .message-loader {
   display: flex;
 }
@@ -69,16 +81,4 @@
 
 .message-loader__dot:nth-child(3) {
   animation-delay: 0.4s;
-}
-
-@keyframes loadingFade {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
