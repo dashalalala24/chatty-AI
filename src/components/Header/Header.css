@@ -1,11 +1,13 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 26.5px 58px;
+  padding: 2.58vh 4.03vw;
 }
 
 .header__logo {
   box-sizing: border-box;
+  width: 7.92vw;
+  height: 3.5vh;
 }
 
 .header__container {
