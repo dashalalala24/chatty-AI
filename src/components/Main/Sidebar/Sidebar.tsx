@@ -22,7 +22,7 @@ const Sidebar: FC = () => {
   const date = new Date().toLocaleDateString();
   const [isSearchButtonClicked, setIsSearchButtonClicked] = useState(false);
 
-  const userMessages = chatMessages.reduce(function (
+  const userMessages = chatMessages?.reduce(function (
     messagesArray: string[],
     message: IChatMessage
   ) {
@@ -53,9 +53,11 @@ const Sidebar: FC = () => {
         />
       </div>
       <section className="sidebar__history-container">
-        {isSearchButtonClicked && userMessages.length ? <HistoryInput /> : null}
-        {userMessages.length ? <p className="sidebar__date">{date}</p> : null}
-        {userMessages.length ? (
+        {isSearchButtonClicked && userMessages?.length ? (
+          <HistoryInput />
+        ) : null}
+        {userMessages?.length ? <p className="sidebar__date">{date}</p> : null}
+        {userMessages?.length ? (
           userMessages.map((text, index) => {
             return <RequestMessage text={text} key={index} />;
           })

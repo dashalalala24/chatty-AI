@@ -23,7 +23,7 @@ const Chat: FC = () => {
   return (
     <div className="chat">
       <p className="chat__date">{date}</p>
-      {chatMessages.length ? (
+      {chatMessages?.length ? (
         chatMessages.map((message) => {
           return (
             <Message
@@ -71,7 +71,7 @@ const Chat: FC = () => {
           />
         </>
       )}
-      {chatMessages.length &&
+      {chatMessages?.length &&
       checkStatus !== "aiPending" &&
       checkStatus !== "userPending" ? (
         <div className="chat__tags">
@@ -79,7 +79,7 @@ const Chat: FC = () => {
             return <Tag key={option} text={option} answer={lastMessage} />;
           })}
         </div>
-      ) : !chatMessages.length ? (
+      ) : !chatMessages?.length ? (
         <div className="chat__tags">
           {language[currentLanguage].exampleQuestions.map((question) => {
             return <Tag key={question} text={question} answer={question} />;
