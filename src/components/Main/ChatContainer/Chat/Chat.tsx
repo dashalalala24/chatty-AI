@@ -15,7 +15,10 @@ const Chat: FC = () => {
 
   const chatMessages = useAppSelector((state) => state.chat.chatMessages);
   const checkStatus = useAppSelector((state) => state.chat.status);
-  const lastMessage = chatMessages[chatMessages?.length - 1]?.text;
+  // const lastMessage = chatMessages[chatMessages?.length - 1]?.text;
+  const getLastMessage = () => {
+    return chatMessages ? chatMessages[chatMessages.length - 1].text : "";
+  };
 
   const date = new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString().slice(0, 5);
@@ -75,9 +78,12 @@ const Chat: FC = () => {
       checkStatus !== "aiPending" &&
       checkStatus !== "userPending" ? (
         <div className="chat__tags">
-          {language[currentLanguage].nextOptions.map((option) => {
-            return <Tag key={option} text={option} answer={lastMessage} />;
-          })}
+          {chatMessages &&
+            language[currentLanguage].nextOptions.map((option) => {
+              return (
+                <Tag key={option} text={option} answer={getLastMessage()} />
+              );
+            })}
         </div>
       ) : !chatMessages?.length ? (
         <div className="chat__tags">
