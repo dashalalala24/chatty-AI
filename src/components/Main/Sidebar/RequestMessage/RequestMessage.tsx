@@ -19,17 +19,16 @@ const RequestMessage: FC<IRequestMessage> = ({ text }) => {
         setIsHovered(false);
       }}
     >
-      <p className="sidebar__text">{text}</p>
-      {/* <RecyclebinButton
-        onClick={(evt: any)=> {console.log(evt.target.closest('.sidebar__message').remove())}}
-      /> */}
-      {isHovered ? (
-        <RecyclebinButton
-          onClick={(evt: BaseSyntheticEvent) => {
-            evt.target.closest(".sidebar__message").remove();
-          }}
-        />
-      ) : null}
+      <div className="sidebar__text-container">
+        <p className="sidebar__text">{text}</p>
+        {isHovered ? (
+          <RecyclebinButton
+            onClick={(evt: BaseSyntheticEvent) => {
+              evt.target.closest(".sidebar__message").remove();
+            }}
+          />
+        ) : null}
+      </div>
     </div>
   );
 };
