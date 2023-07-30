@@ -10,6 +10,7 @@ import {
   IChatMessage,
   resetChat,
 } from "../../../services/redux/slices/chat/chat";
+import plusIcon from "../../../images/plus-icon.svg";
 
 const Sidebar: FC = () => {
   const dispatch = useAppDispatch();
@@ -67,12 +68,13 @@ const Sidebar: FC = () => {
           </h3>
         )}
       </section>
-      <button
-        className="sidebar__newchat-button"
-        onClick={() => dispatch(resetChat())}
-      >
-        {language[currentLanguage].newChat}
-      </button>
+        <button
+          className="sidebar__newchat-button"
+          onClick={() => dispatch(resetChat())}
+        >
+          <p className="sidebar__button-text">{language[currentLanguage].newChat}</p>
+          <img className="sidebar__plus-icon" src={plusIcon} alt="plus"/>
+        </button>
     </section>
   );
 };
