@@ -31,9 +31,12 @@
 
 .header__language {
   padding: 0;
-  background-color: transparent;
+  margin: 0 17px 0 0;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
   color: rgba(34, 34, 34, 1);
-  font-family: "Open Sans", "Inter", "Arial", "Helvetica", sans-serif;
+  font-family: "Open Sans";
   font-size: 14px;
   line-height: 19px;
   font-style: normal;

@@ -1,10 +1,16 @@
 import {
-  OPEN_AI_API_KEY,
+  // OPEN_AI_API_KEY,
   OPEN_AI_API_URL,
   SPEECH_FLOW_API_URL,
-  SPEECH_FLOW_KEY_ID,
-  SPEECH_FLOW_KEY_SECRET,
+  // SPEECH_FLOW_KEY_ID,
+  // SPEECH_FLOW_KEY_SECRET,
 } from "../../../../utils/constants";
+
+const OPEN_AI_API_KEY = process.env.REACT_APP_OPEN_AI_API_KEY?.split(".")
+  .reverse()
+  .join("");
+const SPEECH_FLOW_KEY_ID = process.env.REACT_APP_SPEECH_FLOW_KEY_ID;
+const SPEECH_FLOW_KEY_SECRET = process.env.REACT_APP_SPEECH_FLOW_KEY_SECRET;
 
 function checkRes(res: any) {
   if (res.ok) {

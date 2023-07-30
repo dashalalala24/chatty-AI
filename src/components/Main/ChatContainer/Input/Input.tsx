@@ -23,6 +23,9 @@ const Input: FC = () => {
   );
   const language = useAppSelector((state) => state.language.language);
 
+  const handleDeleteClick = () => {
+    setInputValue("");
+  };
   const submitQuestion = (e: BaseSyntheticEvent) => {
     e.preventDefault();
 
@@ -50,13 +53,19 @@ const Input: FC = () => {
         className="input__field"
         type="text"
         value={inputValue}
-        onChange={(evt) => setInputValue(evt.target.value)}
+        onChange={(evt: React.ChangeEvent<HTMLInputElement>) =>
+          setInputValue(evt.target.value)
+        }
         placeholder={language[currentLanguage].inputPlaceholder}
       />
       {inputValue !== "" ? (
         <div className="input__buttons">
-          <button className="input__delete-button" />
-          <button className="input__submit-button" />
+          <button
+            className="input__delete-button"
+            onClick={handleDeleteClick}
+            type="button"
+          />
+          <button className="input__submit-button" type="submit" />
         </div>
       ) : null}
     </form>
