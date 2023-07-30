@@ -1,10 +1,14 @@
 # Сhatty-AI. Команда №5 "ChattyBox"
 
-**✨ [Здесь будет ссылка на gh-pages](https://dashalalala24.github.io/chatty-AI/) ✨**
+**✨ [Ссылка на gh-pages](https://dashalalala24.github.io/chatty-AI) ✨**
 
 ## Описание
 
-Приложение, которое позволяет с помощью голоса через браузер задать вопрос нейросети и получить ответ в виде текста. Созданно в рамках хакатона Яндекс Практикума.
+#### Chatty AI - голосовой помощник на основе искусственного интеллекта для профессионального сообщества, оптимизирующий рабочие процессы и повышающий эффективность.
+
+Наш сервис позволяет пользователям задать вопрос голосом нейросети и получить ответ текстом. Голосовой помощник обеспечивает профессионалов эффективным инструментом для улучшения работы и принятия обоснованных решений.
+
+Созданно в рамках хакатона Яндекс Практикума.
 
 ## Команда
 
@@ -13,10 +17,9 @@
 - [Олеся Ерастова](https://github.com/olesia1205)
 - [Дарья Лазарчук](https://github.com/dashalalala24)
 
-> Дизайнеры
-
-- Анна Шейко
-- Алексей Шуклин
+ > Дизайнеры  
+* Анна Шейко    
+* Загидат Абдуева 
 
 > Проджект-менеджер
 
@@ -24,17 +27,34 @@
 
 ## Инструкция по сборке и запуску
 
-1. Установка всех зависимостей:
+1. Получите секретный ключ [OpenAI Api Key](https://platform.openai.com/account/api-keys) и пару секретных ключей [SpeechFlowAPI: keyId и keySecret](https://console.speechflow.io/ru/home)
+2. Склонируйте проект с помощью
+
+```shell
+git clone git@github.com:dashalalala24/chatty-AI.git
 
 ```
+
+3. Установите зависимости:
+
+```shell
 npm i
 ```
 
-2. Локальный запуск проекта:
+4. Запустите проект, передав полученные вами ключи:
 
-```
-npm start
-```
+        
+````shell
+REACT_APP_OPEN_AI_API_KEY={Ваш OpenAI API key} REACT_APP_SPEECH_FLOW_KEY_ID={Ваш SpeechFlowAPI keyId} REACT_APP_SPEECH_FLOW_KEY_SECRET={Ваш SpeechFlowAPI keySecret} npm start
+````
+ 
+
+
+ > Пример:
+> ````shell
+> REACT_APP_OPEN_AI_API_KEY=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 REACT_APP_SPEECH_FLOW_KEY_ID=wRGlTiJgiar4y REACT_APP_SPEECH_FLOW_KEY_SECRET=lbkFJkbBMN npm start
+> ````
+
 
 ## Стэк технологий
 
@@ -44,16 +64,15 @@ npm start
 
 ## Использованные API
 
-- OpenAI
--
--
+* OpenAI API
+* SpeechFlow API
+
 
 ## Ссылки на сторонние фреймворки, библиотеки, иконки и шрифты
 
--
--
+* [Шрифт Lato](https://fonts.google.com/specimen/Lato)
+* [Шрифт Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans)
 
 ## Ключевые точки для media queries
 
--
--
+* 1440px x 1024px
