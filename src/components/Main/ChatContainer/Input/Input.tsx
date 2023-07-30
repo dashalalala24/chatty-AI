@@ -8,6 +8,10 @@ import {
   addTextQuestion,
   getAnswer,
 } from "../../../../services/redux/slices/chat/chat";
+import {
+  currentLanguageSelector,
+  languageSelector,
+} from "../../../../services/redux/slices/language/language";
 
 export interface IChatMessage {
   text: string;
@@ -16,16 +20,16 @@ export interface IChatMessage {
 }
 
 const Input: FC = () => {
-  const [inputValue, setInputValue] = useState("");
   const dispatch = useAppDispatch();
-  const currentLanguage = useAppSelector(
-    (state) => state.language.currentLanguage
-  );
-  const language = useAppSelector((state) => state.language.language);
+  const currentLanguage = useAppSelector(currentLanguageSelector);
+  const language = useAppSelector(languageSelector);
+
+  const [inputValue, setInputValue] = useState("");
 
   const handleDeleteClick = () => {
     setInputValue("");
   };
+
   const submitQuestion = (e: BaseSyntheticEvent) => {
     e.preventDefault();
 
@@ -34,10 +38,10 @@ const Input: FC = () => {
     if (inputValue !== "") {
       const date = new Date().toLocaleString();
 
+      setInputValue("");
       dispatch(
         addTextQuestion({ text: inputValue, owner: "user", createdAt: date })
       );
-      e.target.reset();
       dispatch(getAnswer(inputValue));
     }
   };
@@ -45,7 +49,7 @@ const Input: FC = () => {
   return (
     <form
       className="input__form"
-      onSubmit={(e) => {
+      onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
         submitQuestion(e);
       }}
     >

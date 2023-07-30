@@ -2,6 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchGetAIAnswer } from "./chatAPI";
 import { getTranscriptionDone } from "./chatAPI";
 import { cleanTranscriprion } from "../../../../utils/utils";
+import { RootState } from "../../store";
 
 export interface IChatMessage {
   text: string;
@@ -18,13 +19,7 @@ export interface IChat {
 const initialState: IChat = {
   status: "idle",
   error: undefined,
-  chatMessages: [
-    // {
-    //   text: "",
-    //   owner: "",
-    //   createdAt: "",
-    // },
-  ],
+  chatMessages: [],
 };
 
 export const getVoiceToText = createAsyncThunk(
@@ -96,3 +91,10 @@ const chatSlice = createSlice({
 export const { resetChat, addTextQuestion } = chatSlice.actions;
 
 export const chatReducer = chatSlice.reducer;
+
+export const messagesSelector = (state: RootState): IChat["chatMessages"] =>
+  state.chat.chatMessages;
+
+export const chatStatusSelector = (
+  state: RootState
+): RootState["chat"]["status"] => state.chat.status;

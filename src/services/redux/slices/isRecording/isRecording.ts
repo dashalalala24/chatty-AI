@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 
 const isRecordingSlice = createSlice({
   name: "@@isRecording",
@@ -12,3 +13,6 @@ const isRecordingSlice = createSlice({
 export const { toggleRecordingStatus } = isRecordingSlice.actions;
 
 export const isRecordingReducer = isRecordingSlice.reducer;
+
+export const isRecordingSelector = (state: RootState): boolean =>
+  state.isRecording;

@@ -1,5 +1,6 @@
 import { FC, ReactNode, useLayoutEffect, useRef } from "react";
 import "./Message.css";
+import { copyTextToClipboard } from "../../../../utils/utils";
 
 interface IMessage {
   text: string | ReactNode;
@@ -15,16 +16,6 @@ const Message: FC<IMessage> = ({
   isLastMessage = false,
 }) => {
   const lastMessageRef = useRef<null | HTMLDivElement>(null);
-
-  const onCopyClick = async () => {
-    if (typeof text === "string") {
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (_) {
-        console.log("Нет доступа к буферу обмена");
-      }
-    }
-  };
 
   useLayoutEffect(() => {
     if (lastMessageRef.current) {
@@ -60,7 +51,7 @@ const Message: FC<IMessage> = ({
         ) : owner === "ai" && typeof text === "string" ? (
           <button
             className="message__copy-button"
-            onClick={onCopyClick}
+            onClick={() => copyTextToClipboard(text)}
           ></button>
         ) : null}
       </div>
