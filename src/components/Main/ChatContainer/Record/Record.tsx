@@ -53,6 +53,7 @@ const Record: FC = () => {
   return (
     <div className="record">
       <button
+        aria-label="record"
         className={`record__button ${
           isRecording ? "record__button_active" : ""
         }`}

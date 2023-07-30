@@ -30,7 +30,6 @@ export const getAnswer = createAsyncThunk<string, void, { state: RootState }>(
       content: message.text,
     }));
 
-    console.log("getAnswer dataArray", dataArray);
     const response = await fetchGetAIAnswer(dataArray);
     return response.choices[0].message.content;
   }
