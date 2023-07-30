@@ -1,11 +1,10 @@
 import {
+  OPEN_AI_API_KEY,
   OPEN_AI_API_URL,
   SPEECH_FLOW_API_URL,
+  SPEECH_FLOW_KEY_ID,
+  SPEECH_FLOW_KEY_SECRET,
 } from "../../../../utils/constants";
-
-const openAIKey = process.env.REACT_APP_OPEN_AI_API_KEY;
-const speechFlowkeyId = process.env.REACT_APP_SPEECH_FLOW_KEY_ID;
-const speechFlowkeySecret = process.env.REACT_APP_SPEECH_FLOW_KEY_SECRET;
 
 function checkRes(res: any) {
   if (res.ok) {
@@ -21,7 +20,7 @@ export function fetchGetAIAnswer(data: string | unknown) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${openAIKey}`,
+      Authorization: `Bearer ${OPEN_AI_API_KEY}`,
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
@@ -35,8 +34,8 @@ export function postPostUserAudio(data: FormData) {
     method: "POST",
     headers: {
       // "Content-Type": "multipart/form-data",
-      keyId: `${speechFlowkeyId}`,
-      keySecret: `${speechFlowkeySecret}`,
+      keyId: `${SPEECH_FLOW_KEY_ID}`,
+      keySecret: `${SPEECH_FLOW_KEY_SECRET}`,
       mode: "no-cors",
     },
     body: data,
@@ -54,8 +53,8 @@ export function getTranscriptionResult(taskId: string) {
   return fetch(`${SPEECH_FLOW_API_URL}/query/?taskId=${taskId}&resultType=4`, {
     method: "GET",
     headers: {
-      keyId: `${speechFlowkeyId}`,
-      keySecret: `${speechFlowkeySecret}`,
+      keyId: `${SPEECH_FLOW_KEY_ID}`,
+      keySecret: `${SPEECH_FLOW_KEY_SECRET}`,
       mode: "no-cors",
     },
     // body: JSON.stringify({ taskId: taskId }),
