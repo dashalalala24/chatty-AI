@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/chatty-AI/static/css/main.b96144f5.css",
-    "main.js": "/chatty-AI/static/js/main.e6b043b1.js",
+    "main.css": "/chatty-AI/static/css/main.c4e80ece.css",
+    "main.js": "/chatty-AI/static/js/main.84c44819.js",
     "static/media/Lato-Black.ttf": "/chatty-AI/static/media/Lato-Black.0f56360fd2c505dd13fa.ttf",
     "static/media/Lato-Regular.ttf": "/chatty-AI/static/media/Lato-Regular.2b7b7f6c8554ad96436b.ttf",
     "static/media/Lato-Bold.ttf": "/chatty-AI/static/media/Lato-Bold.0baf4e4829ca0a3e1e5c.ttf",
@@ -20,6 +20,7 @@
     "static/media/header-logo.svg": "/chatty-AI/static/media/header-logo.af11fa64c8dcc4847c3f8b5b48ed76b0.svg",
     "static/media/header-profile-hovered.svg": "/chatty-AI/static/media/header-profile-hovered.876b1fcde0c4867904a0.svg",
     "static/media/search-button-hovered.svg": "/chatty-AI/static/media/search-button-hovered.ee504869406f0e8f4881.svg",
+    "static/media/send-alt-1.svg": "/chatty-AI/static/media/send-alt-1.b69898076be231bdd864.svg",
     "static/media/sidebar-recyclebinicon_grey.svg": "/chatty-AI/static/media/sidebar-recyclebinicon_grey.b50f65dd7df221a375c1.svg",
     "static/media/sidebar-recyclebinicon_red.svg": "/chatty-AI/static/media/sidebar-recyclebinicon_red.39474b788e7a0e180370.svg",
     "static/media/copy-button.svg": "/chatty-AI/static/media/copy-button.f2fe0dae6d6ad4343bda.svg",
@@ -32,12 +33,13 @@
     "static/media/mic-icon-black.svg": "/chatty-AI/static/media/mic-icon-black.7bb9cfaafd2264fbbd78.svg",
     "static/media/search-button.svg": "/chatty-AI/static/media/search-button.1e4454b29e64f183b5ae.svg",
     "static/media/newchat-button.svg": "/chatty-AI/static/media/newchat-button.be025ed7d19d9137a21a.svg",
+    "static/media/button-delete.svg": "/chatty-AI/static/media/button-delete.3b2651ad3a1eed35ec4e.svg",
     "static/media/chevron-right.svg": "/chatty-AI/static/media/chevron-right.56bfc0bda8537ad7b20d.svg",
-    "main.b96144f5.css.map": "/chatty-AI/static/css/main.b96144f5.css.map",
-    "main.e6b043b1.js.map": "/chatty-AI/static/js/main.e6b043b1.js.map"
+    "main.c4e80ece.css.map": "/chatty-AI/static/css/main.c4e80ece.css.map",
+    "main.84c44819.js.map": "/chatty-AI/static/js/main.84c44819.js.map"
   },
   "entrypoints": [
-    "static/css/main.b96144f5.css",
-    "static/js/main.e6b043b1.js"
+    "static/css/main.c4e80ece.css",
+    "static/js/main.84c44819.js"
   ]
 }
