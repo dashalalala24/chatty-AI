@@ -1,10 +1,3 @@
-// export interface IChatMessage {
-//   text: string;
-//   owner: "user" | "system";
-//   createdAt: string;
-// }
-// //input
-
 import { ReactNode, SyntheticEvent } from "react";
 
 export interface IMessage {
@@ -101,10 +94,11 @@ export interface textsToTranslate {
 }
 
 export interface LanguageState {
-  currentLanguage: "ru" | "en" | "fr";
+  currentLanguage: "ru" | "en" | "fr" | "zh";
   language: {
     ru: textsToTranslate;
     en: textsToTranslate;
     fr: textsToTranslate;
+    zh: textsToTranslate;
   };
 }

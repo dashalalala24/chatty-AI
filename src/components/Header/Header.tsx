@@ -56,7 +56,8 @@ const Header: FC = () => {
             <option value="ru">RU</option>
             <option value="en">EN</option>
             <option value="fr">FR</option>
-            {/* <option value="zh">CH</option> */}
+            <option value="zh">CH</option>
+            {/* <option value="ar">AE</option> */}
           </select>
           <button className="header__profile" />
         </div>
