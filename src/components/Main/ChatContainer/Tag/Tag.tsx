@@ -2,15 +2,10 @@ import { FC } from "react";
 import "./Tag.css";
 import { useAppDispatch } from "../../../../services/redux/reduxHooks";
 import {
-  addTextQuestion,
+  addChatMessage,
   getAnswer,
 } from "../../../../services/redux/slices/chat/chat";
-import { CURRENT_DATE } from "../../../../utils/constants";
-
-interface ITag {
-  text: string;
-  answer: string;
-}
+import { ITag } from "../../../../types/types";
 
 const Tag: FC<ITag> = ({ text, answer }) => {
   const dispatch = useAppDispatch();
@@ -19,14 +14,15 @@ const Tag: FC<ITag> = ({ text, answer }) => {
     <button
       className="tag"
       onClick={() => {
+        const date = new Date().toLocaleString();
         dispatch(
-          addTextQuestion({
+          addChatMessage({
             text: answer,
             owner: "user",
-            createdAt: CURRENT_DATE,
+            createdAt: date,
           })
         );
-        dispatch(getAnswer(text));
+        dispatch(getAnswer());
       }}
     >
       {text}

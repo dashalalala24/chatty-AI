@@ -3,18 +3,7 @@ import { fetchGetAIAnswer } from "./chatAPI";
 import { getTranscriptionDone } from "./chatAPI";
 import { cleanTranscriprion } from "../../../../utils/utils";
 import { RootState } from "../../store";
-
-export interface IChatMessage {
-  text: string;
-  owner: "user" | "ai";
-  createdAt: string;
-}
-
-export interface IChat {
-  status: "idle" | "fulfilled" | "userPending" | "aiPending" | "rejected";
-  error: string | undefined;
-  chatMessages: IChatMessage[];
-}
+import { IChat, IChatMessage, IDataMessage } from "../../../../types/types";
 
 const initialState: IChat = {
   status: "idle",
@@ -30,10 +19,19 @@ export const getVoiceToText = createAsyncThunk(
   }
 );
 
-export const getAnswer = createAsyncThunk(
+export const getAnswer = createAsyncThunk<string, void, { state: RootState }>(
   "@@chat/fetchGetAIAnswer",
-  async (data: string | unknown) => {
-    const response = await fetchGetAIAnswer(data);
+  async (_, { getState }) => {
+    const state = getState();
+    const chatMessages = messagesSelector(state);
+
+    const dataArray: IDataMessage[] = chatMessages.map((message) => ({
+      role: message.owner,
+      content: message.text,
+    }));
+
+    console.log("getAnswer dataArray", dataArray);
+    const response = await fetchGetAIAnswer(dataArray);
     return response.choices[0].message.content;
   }
 );
@@ -43,7 +41,7 @@ const chatSlice = createSlice({
   initialState,
   reducers: {
     resetChat: () => initialState,
-    addTextQuestion: (state, action: PayloadAction<IChatMessage>) => {
+    addChatMessage: (state, action: PayloadAction<IChatMessage>) => {
       state.chatMessages = [...state.chatMessages, action.payload];
     },
   },
@@ -66,7 +64,7 @@ const chatSlice = createSlice({
         state.status = "fulfilled";
         state.chatMessages.push({
           text: action.payload,
-          owner: "ai",
+          owner: "system",
           createdAt: date,
         });
       })
@@ -88,7 +86,7 @@ const chatSlice = createSlice({
   },
 });
 
-export const { resetChat, addTextQuestion } = chatSlice.actions;
+export const { resetChat, addChatMessage } = chatSlice.actions;
 
 export const chatReducer = chatSlice.reducer;
 

@@ -1,9 +1,6 @@
 import { FC, useLayoutEffect, useRef } from "react";
 import "./MessageLoader.css";
-
-interface IMessageLoader {
-  owner: "user" | "ai";
-}
+import { IMessageLoader } from "../../../../../types/types";
 
 const MessageLoader: FC<IMessageLoader> = ({ owner }) => {
   const loader = useRef<null | HTMLDivElement>(null);
@@ -19,7 +16,7 @@ const MessageLoader: FC<IMessageLoader> = ({ owner }) => {
 
   return (
     <div ref={loader} className={`message-loader message-loader_type_${owner}`}>
-      {owner === "ai" ? (
+      {owner === "system" ? (
         <div
           className={`message-loader__decoration message-loader__decoration_type_${owner}`}
         ></div>

@@ -5,19 +5,13 @@ import {
   useAppSelector,
 } from "../../../../services/redux/reduxHooks";
 import {
-  addTextQuestion,
+  addChatMessage,
   getAnswer,
 } from "../../../../services/redux/slices/chat/chat";
 import {
   currentLanguageSelector,
   languageSelector,
 } from "../../../../services/redux/slices/language/language";
-
-export interface IChatMessage {
-  text: string;
-  owner: "user" | "ai" | "";
-  createdAt: string;
-}
 
 const Input: FC = () => {
   const dispatch = useAppDispatch();
@@ -40,9 +34,9 @@ const Input: FC = () => {
 
       setInputValue("");
       dispatch(
-        addTextQuestion({ text: inputValue, owner: "user", createdAt: date })
+        addChatMessage({ text: inputValue, owner: "user", createdAt: date })
       );
-      dispatch(getAnswer(inputValue));
+      dispatch(getAnswer());
     }
   };
 

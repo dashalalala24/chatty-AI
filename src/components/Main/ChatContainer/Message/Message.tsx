@@ -1,13 +1,7 @@
-import { FC, ReactNode, useLayoutEffect, useRef } from "react";
+import { FC, useLayoutEffect, useRef } from "react";
 import "./Message.css";
 import { copyTextToClipboard } from "../../../../utils/utils";
-
-interface IMessage {
-  text: string | ReactNode;
-  owner: "user" | "ai";
-  createdAt: string;
-  isLastMessage?: boolean;
-}
+import { IMessage } from "../../../../types/types";
 
 const Message: FC<IMessage> = ({
   text,
@@ -32,7 +26,7 @@ const Message: FC<IMessage> = ({
       ref={isLastMessage ? lastMessageRef : null}
     >
       <div className={`message__container message__container_type_${owner}`}>
-        {owner === "ai" ? (
+        {owner === "system" ? (
           <div
             className={`message__decoration message__decoration_type_${owner}`}
           ></div>
@@ -40,7 +34,7 @@ const Message: FC<IMessage> = ({
         {typeof text === "string" ? (
           <p className={`message__text message__text_type_${owner}`}>{text}</p>
         ) : (
-          <div className="message__text-container message__text_type_ai">
+          <div className="message__text-container message__text_type_system">
             {text}
           </div>
         )}
@@ -48,7 +42,7 @@ const Message: FC<IMessage> = ({
           <div
             className={`message__decoration message__decoration_type_${owner}`}
           ></div>
-        ) : owner === "ai" && typeof text === "string" ? (
+        ) : owner === "system" && typeof text === "string" ? (
           <button
             className="message__copy-button"
             onClick={() => copyTextToClipboard(text)}

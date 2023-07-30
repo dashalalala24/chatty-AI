@@ -38,10 +38,11 @@ const Record: FC = () => {
         })
         .then((data: FormData) => getTaskID(data))
         .then((taskId) => {
-          return dispatch(getVoiceToText(taskId));
-        })
-        .then((res) => {
-          dispatch(getAnswer(res.payload));
+          dispatch(getVoiceToText(taskId))
+            .unwrap()
+            .then(() => {
+              dispatch(getAnswer());
+            });
         })
         .finally(() => setIsDisabled(false));
     } else {

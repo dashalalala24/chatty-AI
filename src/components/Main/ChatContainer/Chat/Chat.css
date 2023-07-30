@@ -7,6 +7,11 @@
   scrollbar-width: none;
 }
 
+.chat::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .chat__date {
   color: #2a2a2a;
   text-align: center;

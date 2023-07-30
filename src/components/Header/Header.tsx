@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { FC } from "react";
 import "./Header.css";
 import headerLogo from "../../images/header-logo.svg";
@@ -11,6 +10,7 @@ import {
   languageSelector,
   setLanguage,
 } from "../../services/redux/slices/language/language";
+import { addChatMessage } from "../../services/redux/slices/chat/chat";
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
@@ -28,9 +28,21 @@ const Header: FC = () => {
       <div className="header__container">
         <nav className="header__nav">
           <li>
-            <Link className="header__link" to="/">
+            <button
+              className="header__help"
+              onClick={() => {
+                const date = new Date().toLocaleString();
+                dispatch(
+                  addChatMessage({
+                    text: language[currentLanguage].helpMessage,
+                    owner: "system",
+                    createdAt: date,
+                  })
+                );
+              }}
+            >
               {language[currentLanguage].help}
-            </Link>
+            </button>
           </li>
         </nav>
         <div className="header__buttons">

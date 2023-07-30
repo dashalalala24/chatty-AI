@@ -1,3 +1,4 @@
+import { IDataMessage } from "../../../../types/types";
 import {
   OPEN_AI_API_KEY,
   OPEN_AI_API_URL,
@@ -15,7 +16,7 @@ function checkRes(res: any) {
   }
 }
 
-export function fetchGetAIAnswer(data: string | unknown) {
+export function fetchGetAIAnswer(dataArray: IDataMessage[]) {
   return fetch(OPEN_AI_API_URL, {
     method: "POST",
     headers: {
@@ -24,7 +25,7 @@ export function fetchGetAIAnswer(data: string | unknown) {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: data }],
+      messages: dataArray,
     }),
   }).then(checkRes);
 }

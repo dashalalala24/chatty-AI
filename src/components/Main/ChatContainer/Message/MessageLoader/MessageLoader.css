@@ -23,15 +23,14 @@
   height: 10px;
   position: relative;
   padding: 20px;
-  margin-left: 5px;
 }
 
 .message-loader__container_type_user {
-  background-color: #faf2ff;
+  background-color: #f6e8ff;
   border-radius: 16px 16px 0px 16px;
 }
 
-.message-loader__container_type_ai {
+.message-loader__container_type_system {
   background-color: #fff;
   border-radius: 16px 16px 16px 0px;
 }
@@ -45,10 +44,10 @@
 
 .message-loader__decoration_type_user {
   border-width: 0px 20px 16px 0px;
-  border-color: transparent transparent #faf2ff transparent;
+  border-color: transparent transparent #f6e8ff transparent;
 }
 
-.message-loader__decoration_type_ai {
+.message-loader__decoration_type_system {
   border-width: 0 0 16px 20px;
   border-color: transparent transparent #ffffff transparent;
 }
@@ -67,7 +66,7 @@
   background-color: #fff;
 }
 
-.message-loader__dot_type_ai {
+.message-loader__dot_type_system {
   background-color: rgba(148, 0, 217, 0.15);
 }
 

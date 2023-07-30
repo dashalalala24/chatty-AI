@@ -1,37 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import { LanguageState } from "../../../../types/types";
 
-interface IMessage {
-  [key: string]: string;
-}
-
-interface textsToTranslate {
-  help: string;
-  logInButton: string;
-  history: string;
-  emptyHistory: string;
-  recordingStarted: string;
-  recordingStopped: string;
-  inputPlaceholder: string;
-  historyPlaceholder: string;
-  newChat: string;
-  exampleQuestions: string[];
-  nextOptions: string[];
-  textSignUp: string;
-  textSignIn: string;
-  or: string;
-  defaultMessageForNewUser: IMessage;
-  helpMessage: IMessage;
-}
-
-interface LanguageState {
-  currentLanguage: "ru" | "en" | "fr";
-  language: {
-    ru: textsToTranslate;
-    en: textsToTranslate;
-    fr: textsToTranslate;
-  };
-}
 const initialState: LanguageState = {
   currentLanguage: "ru",
   language: {
@@ -50,7 +20,8 @@ const initialState: LanguageState = {
         "Элементы договора аренды",
         "Регистрация товарного знака",
       ],
-      nextOptions: ["Ответь иначе", "Продолжай"],
+      tryAgainTag: "Ответь иначе",
+      continueTag: "Продолжай",
       textSignUp: "Зарегистрируйся",
       textSignIn: "войди",
       or: " или ",
@@ -64,20 +35,7 @@ const initialState: LanguageState = {
         part_4:
           "Выражай свои мысли понятно и ясно, и не стесняйся задавать уточняющие вопросы. Давай начнем! Жми на микрофон, спрашивай и я помогу!",
       },
-      helpMessage: {
-        part_1:
-          "Привет! Я — ChattyAI, голосовой помощник с искусственным интеллектом для профессионального использования. Моя цель — помогать оптимизировать рабочие процессы и делать их более эффективными.",
-        part_2:
-          "Когда ты задаешь вопрос голосом, я даю ответ в виде текста. Просто нажми на значок микрофона, произнеси свой вопрос, и я постараюсь помочь.",
-        part_3:
-          "Помни, что я использую технологию ChatGPT от OpenAI, поэтому ответы могут быть выдуманными и не отображать моего собственного мнения. Но не волнуйся, я всегда постараюсь быть полезным!",
-        part_4:
-          'Если мой ответ не подходит или ты хочешь получить другую информацию, просто нажми кнопку "Ответь иначе", и я постараюсь дать новый ответ. А если тебе понравился ответ и хочешь узнать больше, нажми "Продолжай".',
-        part_5:
-          "Также, у меня есть История запросов, где ты можешь найти наши предыдущие диалоги, если нужно. И помни, для сохранения нашей беседы лучше зарегистрироваться или войти в свой аккаунт.",
-        part_6:
-          "Давай начнем, задай свой вопрос, и я постараюсь помочь как можно лучше!",
-      },
+      helpMessage: `Привет! Я — ChattyAI, голосовой помощник с искусственным интеллектом для профессионального использования. Моя цель — помогать оптимизировать рабочие процессы и делать их более эффективными. \n\n Когда ты задаешь вопрос голосом, я даю ответ в виде текста. Просто нажми на значок микрофона, произнеси свой вопрос, и я постараюсь помочь. \n\n Помни, что я использую технологию ChatGPT от OpenAI, поэтому ответы могут быть выдуманными и не отображать моего собственного мнения. Но не волнуйся, я всегда постараюсь быть полезным! \n\n Если мой ответ не подходит или ты хочешь получить другую информацию, просто нажми кнопку "Ответь иначе", и я постараюсь дать новый ответ. А если тебе понравился ответ и хочешь узнать больше, нажми "Продолжай" \n\n Также, у меня есть История запросов, где ты можешь найти наши предыдущие диалоги, если нужно. И помни, для сохранения нашей беседы лучше зарегистрироваться или войти в свой аккаунт. \n\n Давай начнем, задай свой вопрос, и я постараюсь помочь как можно лучше!`,
     },
     en: {
       help: "Help",
@@ -94,7 +52,8 @@ const initialState: LanguageState = {
         "Elements of a lease agreement",
         "Trademark registration",
       ],
-      nextOptions: ["Try again", "Go on"],
+      tryAgainTag: "Try again",
+      continueTag: "Go on",
       textSignUp: "Sign up",
       textSignIn: "sign in",
       or: " or ",
@@ -108,20 +67,8 @@ const initialState: LanguageState = {
         part_4:
           "Express your thoughts clearly and concisely, and feel free to ask clarifying questions. Let's start! Click on the microphone and I will help!",
       },
-      helpMessage: {
-        part_1:
-          "Hello! I am ChattyAI, an artificial intelligence voice assistant for professional use. My goal is to help streamline workflows and make them more efficient.",
-        part_2:
-          "When you ask a question with your voice, I give the answer in text. Just click the microphone icon, say your question and I'll try to help.",
-        part_3:
-          "Keep in mind that I am using OpenAI's ChatGPT technology, so answers may be fictitious and do not reflect my own opinion. But don't worry, I'll always try my best to be helpful!",
-        part_4:
-          'If my answer doesn\'t satisfy you, or if you want more information, just click the "Try again" button and I\'ll try to give a new answer. And if you liked the answer and want to know more, click "Continue".',
-        part_5:
-          "Also, I have a Request History where you can find our previous conversations if needed. And remember, to save our conversation, it's better to register or log into your account.",
-        part_6:
-          "Let's get started, ask your question and I'll try to help the best I can!",
-      },
+      helpMessage:
+        "Hello! I am ChattyAI, an artificial intelligence voice assistant for professional use. My goal is to help streamline workflows and make them more efficient. \n\nWhen you ask a question with your voice, I give the answer in text. Just click the microphone icon, say your question and I'll try to help. \n\nKeep in mind that I am using OpenAI's ChatGPT technology, so answers may be fictitious and do not reflect my own opinion. But don't worry, I'll always try my best to be helpful! \n\nIf my answer doesn't satisfy you, or if you want more information, just click the \"Try again\" button and I'll try to give a new answer. And if you liked the answer and want to know more, click \"Continue\". \n\nAlso, I have a Request History where you can find our previous conversations if needed. And remember, to save our conversation, it's better to register or log into your account. \n\nLet's get started, ask your question and I'll try to help the best I can!",
     },
     fr: {
       help: "Aider",
@@ -138,7 +85,8 @@ const initialState: LanguageState = {
         "Éléments d'un contrat de bail",
         "Dépôt de marque",
       ],
-      nextOptions: ["Répondez autrement", "Continuez"],
+      tryAgainTag: "Répondez autrement",
+      continueTag: "Continuez",
       textSignUp: "Inscrivez-vous",
       textSignIn: "connectez-vous",
       or: " ou ",
@@ -152,20 +100,8 @@ const initialState: LanguageState = {
         part_4:
           "Exprimez vos pensées de manière claire et concise et n'hésitez pas à poser des questions de clarification. Commençons! Cliquez sur le microphone et je vous aiderai!",
       },
-      helpMessage: {
-        part_1:
-          "Bonjour! Je suis ChattyAI, un assistant vocal d'intelligence artificielle à usage professionnel. Mon objectif est d'aider à rationaliser les flux de travail et à les rendre plus efficaces.",
-        part_2:
-          "Lorsque vous posez une question avec votre voix, je donne la réponse sous forme de texte. Cliquez simplement sur l'icône du microphone, dites votre question et j'essaierai de vous aider.",
-        part_3:
-          "Gardez à l'esprit que j'utilise la technologie ChatGPT d'OpenAI, donc les réponses peuvent être fictives et ne reflètent pas ma propre opinion. Mais ne vous inquiétez pas, je ferai toujours de mon mieux pour vous être utile !",
-        part_4:
-          'Si ma réponse ne vous satisfait pas, ou si vous souhaitez plus d\'informations, cliquez simplement sur le bouton "Réessayer" et j\'essaierai de donner une nouvelle réponse. Et si vous avez aimé la réponse et que vous voulez en savoir plus, cliquez sur "Continuer".',
-        part_5:
-          "De plus, j'ai un historique des demandes où vous pouvez trouver nos conversations précédentes si nécessaire. Et rappelez-vous, pour enregistrer notre conversation, il est préférable de vous inscrire ou de vous connecter à votre compte.",
-        part_6:
-          "Commençons, posez votre question et j'essaierai de vous aider du mieux que je peux !",
-      },
+      helpMessage:
+        "Bonjour! Je suis ChattyAI, un assistant vocal d'intelligence artificielle à usage professionnel. Mon objectif est d'aider à rationaliser les flux de travail et à les rendre plus efficaces. \n\nLorsque vous posez une question avec votre voix, je donne la réponse sous forme de texte. Cliquez simplement sur l'icône du microphone, dites votre question et j'essaierai de vous aider. \n\nGardez à l'esprit que j'utilise la technologie ChatGPT d'OpenAI, donc les réponses peuvent être fictives et ne reflètent pas ma propre opinion. Mais ne vous inquiétez pas, je ferai toujours de mon mieux pour vous être utile ! \n\nSi ma réponse ne vous satisfait pas, ou si vous souhaitez plus d'informations, cliquez simplement sur le bouton \"Réessayer\" et j'essaierai de donner une nouvelle réponse. Et si vous avez aimé la réponse et que vous voulez en savoir plus, cliquez sur \"Continuer\". \n\nDe plus, j'ai un historique des demandes où vous pouvez trouver nos conversations précédentes si nécessaire. Et rappelez-vous, pour enregistrer notre conversation, il est préférable de vous inscrire ou de vous connecter à votre compte. \n\nCommençons, posez votre question et j'essaierai de vous aider du mieux que je peux !",
     },
     // zh: {
     //   help: "帮助",
@@ -178,7 +114,8 @@ const initialState: LanguageState = {
     //   historyPlaceholder: "按历史搜索",
     //   newChat: "新聊天",
     //   exampleQuestions: ["保密协议模板", "租赁协议的要素", "商标注册"],
-    //   nextOptions: ["不同地回答", "继续"],
+    //   tryAgainTag: "不同地回答t",
+    //   continueTag: "继续",
     //   textSignUp: "请注册",
     //   textSignIn: "登录",
     //   or: "或者",

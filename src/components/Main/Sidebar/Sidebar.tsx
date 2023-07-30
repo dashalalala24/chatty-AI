@@ -8,7 +8,6 @@ import {
   useAppSelector,
 } from "../../../services/redux/reduxHooks";
 import {
-  IChatMessage,
   messagesSelector,
   resetChat,
 } from "../../../services/redux/slices/chat/chat";
@@ -17,6 +16,7 @@ import {
   currentLanguageSelector,
   languageSelector,
 } from "../../../services/redux/slices/language/language";
+import { IChatMessage } from "../../../types/types";
 
 const Sidebar: FC = () => {
   const dispatch = useAppDispatch();
@@ -73,13 +73,15 @@ const Sidebar: FC = () => {
           </h3>
         )}
       </section>
-        <button
-          className="sidebar__newchat-button"
-          onClick={() => dispatch(resetChat())}
-        >
-          <p className="sidebar__button-text">{language[currentLanguage].newChat}</p>
-          <img className="sidebar__plus-icon" src={plusIcon} alt="plus"/>
-        </button>
+      <button
+        className="sidebar__newchat-button"
+        onClick={() => dispatch(resetChat())}
+      >
+        <p className="sidebar__button-text">
+          {language[currentLanguage].newChat}
+        </p>
+        <img className="sidebar__plus-icon" src={plusIcon} alt="plus" />
+      </button>
     </section>
   );
 };

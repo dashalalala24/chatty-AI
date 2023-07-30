@@ -1,32 +1,9 @@
 import { useEffect } from "react";
-
-export interface WaveOptions {
-  start: string;
-  stop: string;
-  lineWidth: number;
-  xSpeed: number;
-  amplitude: number;
-  offset: number;
-}
-
-export interface AnimationProps {
-  inMin: number;
-  inMax: number;
-  outMin: number;
-  outMax: number;
-}
-
-export interface CanvasObject {
-  ele: HTMLCanvasElement;
-  ctx: CanvasRenderingContext2D | null;
-  width: number;
-  height: number;
-  resizeCallback: (() => void) | null;
-  init: () => CanvasRenderingContext2D | null;
-  onResize: (callback: () => void) => void;
-  resize: () => void;
-  run: (callback: (ctx: CanvasRenderingContext2D) => void) => void;
-}
+import {
+  AnimationProps,
+  CanvasObject,
+  WaveOptions,
+} from "../../../../../types/types";
 
 function Animation({ inMin, inMax, outMin, outMax }: AnimationProps) {
   function valueMapping(

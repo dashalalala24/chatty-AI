@@ -1,8 +1,5 @@
-import { FC, SyntheticEvent } from "react";
-
-interface IRecyclebinButton {
-  onClick?: (e: SyntheticEvent) => void;
-}
+import { FC } from "react";
+import { IRecyclebinButton } from "../../../../../types/types";
 
 const RecyclebinButton: FC<IRecyclebinButton> = ({ onClick }) => {
   return (

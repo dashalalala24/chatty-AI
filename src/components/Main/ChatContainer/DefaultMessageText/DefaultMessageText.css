@@ -1,0 +1,13 @@
+.default-message-text__paragraph {
+  padding: 0 0 30px;
+  margin: 0;
+}
+
+.default-message-text__paragraph:last-of-type {
+  padding: 0;
+}
+
+.default-message-text__link {
+  color: #9400d9;
+  text-decoration: none;
+}

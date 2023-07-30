@@ -6,7 +6,7 @@ import Input from "./Input/Input";
 
 const ChatContainer: FC = () => {
   return (
-    <section className="chatContainer">
+    <section className="chat-сontainer">
       <Chat />
       <WaveAnimation />
       <Input />

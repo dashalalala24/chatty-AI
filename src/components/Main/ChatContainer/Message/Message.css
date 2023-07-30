@@ -21,11 +21,12 @@
 }
 
 .message__text_type_user {
-  background-color: #faf2ff;
+  background-color: #f6e8ff;
   border-radius: 16px 16px 0px 16px;
 }
 
-.message__text_type_ai {
+.message__text_type_system {
+  white-space: pre-line;
   background-color: #fff;
   border-radius: 16px 16px 16px 0px;
 }
@@ -41,7 +42,7 @@
   justify-content: flex-end;
 }
 
-.message__container_type_ai {
+.message__container_type_system {
   justify-content: flex-start;
 }
 
@@ -52,14 +53,14 @@
   border-style: solid;
 }
 
-.message__decoration_type_ai {
+.message__decoration_type_system {
   border-width: 0 0 16px 20px;
   border-color: transparent transparent #ffffff transparent;
 }
 
 .message__decoration_type_user {
   border-width: 0px 20px 16px 0px;
-  border-color: transparent transparent #faf2ff transparent;
+  border-color: transparent transparent #f6e8ff transparent;
 }
 
 .message__copy-button {
@@ -87,6 +88,6 @@
   text-align: end;
 }
 
-.message__time_type_ai {
+.message__time_type_system {
   text-align: start;
 }

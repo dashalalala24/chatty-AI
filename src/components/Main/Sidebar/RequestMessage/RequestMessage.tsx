@@ -1,10 +1,7 @@
 import { BaseSyntheticEvent, FC, useState } from "react";
 import "./RequestMessage.css";
 import RecyclebinButton from "./RecyclebinButton/RecyclebinButton";
-
-interface IRequestMessage {
-  text: string;
-}
+import { IRequestMessage } from "../../../../types/types";
 
 const RequestMessage: FC<IRequestMessage> = ({ text }) => {
   const [isHovered, setIsHovered] = useState(false);
