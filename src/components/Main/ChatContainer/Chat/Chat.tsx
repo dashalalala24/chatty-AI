@@ -15,7 +15,7 @@ const Chat: FC = () => {
 
   const chatMessages = useAppSelector((state) => state.chat.chatMessages);
   const checkStatus = useAppSelector((state) => state.chat.status);
-  const lastMessage = chatMessages[chatMessages.length - 1]?.text;
+  const lastMessage = chatMessages[chatMessages?.length - 1]?.text;
 
   const date = new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString().slice(0, 5);
@@ -24,7 +24,7 @@ const Chat: FC = () => {
     <div className="chat">
       <p className="chat__date">{date}</p>
       {chatMessages?.length ? (
-        chatMessages.map((message) => {
+        chatMessages?.map((message) => {
           return (
             <Message
               key={message.createdAt}
@@ -32,7 +32,7 @@ const Chat: FC = () => {
               owner={message.owner}
               createdAt={message.createdAt.slice(12, 17)}
               isLastMessage={
-                chatMessages.indexOf(message) === chatMessages.length - 1
+                chatMessages?.indexOf(message) === chatMessages?.length - 1
                   ? true
                   : false
               }
