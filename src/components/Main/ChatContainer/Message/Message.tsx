@@ -5,14 +5,14 @@ interface IMessage {
   text: string | ReactNode;
   owner: "user" | "ai";
   createdAt: string;
-  lastMessage?: boolean;
+  isLastMessage?: boolean;
 }
 
 const Message: FC<IMessage> = ({
   text,
   owner,
   createdAt,
-  lastMessage = false,
+  isLastMessage = false,
 }) => {
   const lastMessageRef = useRef<null | HTMLDivElement>(null);
 
@@ -38,7 +38,7 @@ const Message: FC<IMessage> = ({
   return (
     <div
       className={`message message_type_${owner}`}
-      ref={lastMessage ? lastMessageRef : null}
+      ref={isLastMessage ? lastMessageRef : null}
     >
       <div className={`message__container message__container_type_${owner}`}>
         {owner === "ai" ? (
@@ -64,13 +64,7 @@ const Message: FC<IMessage> = ({
           ></button>
         ) : null}
       </div>
-      <p
-        className={`message__time message__time_type_${owner} ${
-          lastMessage ? "message__time_last" : ""
-        }`}
-      >
-        {createdAt}
-      </p>
+      <p className={`message__time message__time_type_${owner}`}>{createdAt}</p>
     </div>
   );
 };

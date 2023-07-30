@@ -1,6 +1,5 @@
 import { FC, useLayoutEffect, useRef } from "react";
 import "./MessageLoader.css";
-import "../Message.css";
 
 interface IMessageLoader {
   owner: "user" | "ai";
@@ -12,7 +11,7 @@ const MessageLoader: FC<IMessageLoader> = ({ owner }) => {
   useLayoutEffect(() => {
     if (loader.current) {
       loader.current.scrollIntoView({
-        block: "start",
+        block: "end",
         behavior: "smooth",
       });
     }

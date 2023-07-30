@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* max-height: 541px; */
   overflow: scroll;
-  /* justify-content: end; */
-  /* margin-top: auto; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .chat__date {
@@ -22,4 +21,23 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+.chat__tags {
+  padding: 0;
+  margin: 16px 0 0 0;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.chat__tags-button {
+  width: 16px;
+  height: 16px;
+  align-self: center;
+  border: 0;
+  background-color: inherit;
+  background-image: url(../../../../images/chevron-right.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
 }

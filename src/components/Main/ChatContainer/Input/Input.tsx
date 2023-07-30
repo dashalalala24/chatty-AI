@@ -1,8 +1,11 @@
 import { BaseSyntheticEvent, FC, useState } from "react";
 import "./Input.css";
-import { useAppDispatch } from "../../../../services/redux/reduxHooks";
 import {
-  addMessage,
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../services/redux/reduxHooks";
+import {
+  addTextQuestion,
   getAnswer,
 } from "../../../../services/redux/slices/chat/chat";
 
@@ -13,31 +16,12 @@ export interface IChatMessage {
 }
 
 const Input: FC = () => {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState("");
   const dispatch = useAppDispatch();
-
-  // function checkRes(res: any) {
-  //   if (res.ok) {
-  //     return res.json();
-  //   } else {
-  //     return Promise.reject(res);
-  //   }
-  // }
-
-  // function fetchGetAIAnswer() {
-  //   return fetch(`https://api.openai.com/v1/chat/completions`, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Bearer: "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",
-  //     },
-  //   }).then(checkRes);
-  // }
-
-  // function getAnswer = () => {
-  //   const response = await fetchGetAIAnswer();
-  //     return response.data;
-  // }
+  const currentLanguage = useAppSelector(
+    (state) => state.language.currentLanguage
+  );
+  const language = useAppSelector((state) => state.language.language);
 
   const submitQuestion = (e: BaseSyntheticEvent) => {
     e.preventDefault();
@@ -48,12 +32,10 @@ const Input: FC = () => {
       const date = new Date().toLocaleString();
 
       dispatch(
-        addMessage({ text: inputValue, owner: "user", createdAt: date })
+        addTextQuestion({ text: inputValue, owner: "user", createdAt: date })
       );
       e.target.reset();
-      dispatch(getAnswer(inputValue))
-        .unwrap()
-        .then(() => console.log("dispatched input"));
+      dispatch(getAnswer(inputValue));
     }
   };
 
@@ -67,16 +49,16 @@ const Input: FC = () => {
       <input
         className="input__field"
         type="text"
-        placeholder="Введите Ваш запрос здесь"
         value={inputValue}
         onChange={(evt) => setInputValue(evt.target.value)}
+        placeholder={language[currentLanguage].inputPlaceholder}
       />
-      { inputValue !== "" ? (
+      {inputValue !== "" ? (
         <div className="input__buttons">
           <button className="input__delete-button" />
           <button className="input__submit-button" />
         </div>
-      ) : null }
+      ) : null}
     </form>
   );
 };
