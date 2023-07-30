@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chatty-AI/static/css/main.b96144f5.css",
-    "main.js": "/chatty-AI/static/js/main.ceb9f619.js",
+    "main.js": "/chatty-AI/static/js/main.e6b043b1.js",
     "static/media/Lato-Black.ttf": "/chatty-AI/static/media/Lato-Black.0f56360fd2c505dd13fa.ttf",
     "static/media/Lato-Regular.ttf": "/chatty-AI/static/media/Lato-Regular.2b7b7f6c8554ad96436b.ttf",
     "static/media/Lato-Bold.ttf": "/chatty-AI/static/media/Lato-Bold.0baf4e4829ca0a3e1e5c.ttf",
@@ -34,10 +34,10 @@
     "static/media/newchat-button.svg": "/chatty-AI/static/media/newchat-button.be025ed7d19d9137a21a.svg",
     "static/media/chevron-right.svg": "/chatty-AI/static/media/chevron-right.56bfc0bda8537ad7b20d.svg",
     "main.b96144f5.css.map": "/chatty-AI/static/css/main.b96144f5.css.map",
-    "main.ceb9f619.js.map": "/chatty-AI/static/js/main.ceb9f619.js.map"
+    "main.e6b043b1.js.map": "/chatty-AI/static/js/main.e6b043b1.js.map"
   },
   "entrypoints": [
     "static/css/main.b96144f5.css",
-    "static/js/main.ceb9f619.js"
+    "static/js/main.e6b043b1.js"
   ]
 }
