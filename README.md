@@ -41,11 +41,11 @@ git clone git@github.com:dashalalala24/chatty-AI.git
 npm i
 ```
 
-4. Запустите проект, передав полученные вами ключи:
+4. Запустите проект, передав полученные вами ключи в формате:
 
         
 ````shell
-REACT_APP_OPEN_AI_API_KEY={Ваш OpenAI API key} REACT_APP_SPEECH_FLOW_KEY_ID={Ваш SpeechFlowAPI keyId} REACT_APP_SPEECH_FLOW_KEY_SECRET={Ваш SpeechFlowAPI keySecret} npm start
+REACT_APP_OPEN_AI_API_KEY=yourOpenAiAPIkey REACT_APP_SPEECH_FLOW_KEY_ID=yourSpeechFlowAPIkeyId REACT_APP_SPEECH_FLOW_KEY_SECRET=yourSpeechFlowAPIkeySecret npm start
 ````
  
 
