@@ -114,7 +114,7 @@ const initialState: LanguageState = {
       historyPlaceholder: "按历史搜索",
       newChat: "新聊天",
       exampleQuestions: ["保密协议模板", "租赁协议的要素", "商标注册"],
-      tryAgainTag: "不同地回答t",
+      tryAgainTag: "不同地回答",
       continueTag: "继续",
       textSignUp: "请注册",
       textSignIn: "登录",
