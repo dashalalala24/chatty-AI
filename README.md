@@ -1,4 +1,4 @@
-# Сhatty-AI. Команда №5 "ChattyBox"
+# Сhatty-AI
 
 **✨ [Ссылка на gh-pages](https://dashalalala24.github.io/chatty-AI) ✨**
 
@@ -23,7 +23,7 @@
 
 > Проджект-менеджер
 
-- Айсун Саттарзаде
+- [Айсун Саттарзаде](https://github.com/sattarzade)
 
 ## Инструкция по сборке и запуску
 
