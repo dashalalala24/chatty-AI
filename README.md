@@ -76,6 +76,7 @@ REACT_APP_OPEN_AI_API_KEY=yourOpenAiAPIkey REACT_APP_SPEECH_FLOW_KEY_ID=yourSpee
 
 ## Ссылки на сторонние фреймворки, библиотеки, иконки и шрифты
 
+* [Microphone Recorder to Mp3](https://www.npmjs.com/package/mic-recorder-to-mp3)
 * [Шрифт Lato](https://fonts.google.com/specimen/Lato)
 * [Шрифт Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans)
 
