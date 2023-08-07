@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "./Header.css";
 import headerLogo from "../../images/header-logo.svg";
 import {
@@ -17,9 +17,26 @@ const Header: FC = () => {
   const currentLanguage = useAppSelector(currentLanguageSelector);
   const language = useAppSelector(languageSelector);
 
-  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    dispatch(setLanguage(value));
+  const [isLanguagesVisible, setIsLanguagesVisible] = useState(false);
+
+  const langOptions = ["ru", "en", "fr", "zh"];
+  const renderOtherLangButtons = () => {
+    return langOptions
+      .filter((lang) => lang !== currentLanguage)
+      .map((lang) => {
+        return (
+          <button
+            className="header__lang-button"
+            onClick={() => handleSelect(lang)}
+          >
+            {lang}
+          </button>
+        );
+      });
+  };
+  const handleSelect = (lang: string) => {
+    dispatch(setLanguage(lang));
+    setIsLanguagesVisible(false);
   };
 
   return (
@@ -44,20 +61,24 @@ const Header: FC = () => {
             {language[currentLanguage].help}
           </button>
         </nav>
+
         <div className="header__buttons">
-          <select
-            className="header__language"
-            id="lang"
-            name="lang"
-            value={currentLanguage}
-            onChange={handleSelect}
-          >
-            <option value="ru">RU</option>
-            <option value="en">EN</option>
-            <option value="fr">FR</option>
-            <option value="zh">CH</option>
-            {/* <option value="ar">AE</option> */}
-          </select>
+          <div className="header__lang-buttons">
+            <button
+              className="header__lang-button header__lang-button_active"
+              onClick={() => setIsLanguagesVisible(!isLanguagesVisible)}
+            >
+              {currentLanguage}
+            </button>
+            <div
+              className={`header__other-lang-buttons ${
+                isLanguagesVisible ? "header__other-lang-buttons_visible" : ""
+              }`}
+            >
+              {renderOtherLangButtons()}
+            </div>
+          </div>
+
           <button aria-label="profile" className="header__profile" />
         </div>
       </div>
