@@ -1,4 +1,4 @@
-import { FC, SyntheticEvent } from "react";
+import { FC } from "react";
 import "./HistoryInput.css";
 import {
   currentLanguageSelector,
@@ -17,12 +17,9 @@ const HistoryInput: FC = () => {
         type="text"
         placeholder={language[currentLanguage].historyPlaceholder}
       />
-      <button
-        className="historyinput__calender-button"
-        onClick={(evt: SyntheticEvent) => {
-          evt.preventDefault();
-        }}
-      />
+      <label className="historyinput__calender-label">
+        <input className="historyinput__calender-button" type="date" />
+      </label>
     </form>
   );
 };

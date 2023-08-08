@@ -11,6 +11,7 @@ import {
   setLanguage,
 } from "../../services/redux/slices/language/language";
 import { addChatMessage } from "../../services/redux/slices/chat/chat";
+import { LANG_OPTIONS } from "../../utils/constants";
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
@@ -19,20 +20,20 @@ const Header: FC = () => {
 
   const [isLanguagesVisible, setIsLanguagesVisible] = useState(false);
 
-  const langOptions = ["ru", "en", "fr", "zh"];
   const renderOtherLangButtons = () => {
-    return langOptions
-      .filter((lang) => lang !== currentLanguage)
-      .map((lang) => {
+    return LANG_OPTIONS.filter((lang) => lang !== currentLanguage).map(
+      (lang) => {
         return (
           <button
+            key={lang}
             className="header__lang-button"
             onClick={() => handleSelect(lang)}
           >
             {lang}
           </button>
         );
-      });
+      }
+    );
   };
   const handleSelect = (lang: string) => {
     dispatch(setLanguage(lang));
