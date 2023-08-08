@@ -18,3 +18,6 @@ export const copyTextToClipboard = async (text: string) => {
     }
   }
 };
+
+export const getCurrentDate = () => new Date().toLocaleDateString();
+export const getCurrentTime = () => new Date().toLocaleTimeString().slice(0, 5);

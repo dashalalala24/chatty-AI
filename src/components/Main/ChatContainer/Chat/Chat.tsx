@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import { useAppSelector } from "../../../../services/redux/reduxHooks";
 
 import "./Chat.css";
@@ -6,7 +6,6 @@ import Message from "../Message/Message";
 import MessageLoader from "../Message/MessageLoader/MessageLoader";
 import Tag from "../Tag/Tag";
 import DefaultMessageText from "../DefaultMessageText/DefaultMessageText";
-import { CURRENT_DATE, CURRENT_TIME } from "../../../../utils/constants";
 import {
   currentLanguageSelector,
   languageSelector,
@@ -15,6 +14,7 @@ import {
   chatStatusSelector,
   messagesSelector,
 } from "../../../../services/redux/slices/chat/chat";
+import { getCurrentDate, getCurrentTime } from "../../../../utils/utils";
 
 const Chat: FC = () => {
   const currentLanguage = useAppSelector(currentLanguageSelector);
@@ -23,11 +23,14 @@ const Chat: FC = () => {
   const chatMessages = useAppSelector(messagesSelector);
   const checkStatus = useAppSelector(chatStatusSelector);
 
-  const lastMessage = chatMessages[chatMessages?.length - 2]?.text;
+  const lastMessage = useMemo(
+    () => chatMessages[chatMessages?.length - 2]?.text,
+    [chatMessages]
+  );
 
   return (
     <div className="chat">
-      <p className="chat__date">{CURRENT_DATE}</p>
+      <p className="chat__date">{getCurrentDate()}</p>
       {chatMessages?.length ? (
         chatMessages?.map((message) => {
           return (
@@ -48,7 +51,7 @@ const Chat: FC = () => {
         <Message
           text={<DefaultMessageText />}
           owner={"system"}
-          createdAt={CURRENT_TIME}
+          createdAt={getCurrentTime()}
         />
       )}
       {chatMessages?.length &&
@@ -71,7 +74,6 @@ const Chat: FC = () => {
           {language[currentLanguage].exampleQuestions.map((question) => {
             return <Tag key={question} text={question} answer={question} />;
           })}
-          {/* <button className="chat__tags-button"></button> */}
         </div>
       ) : null}
       {checkStatus === "aiPending" ? <MessageLoader owner={"system"} /> : null}

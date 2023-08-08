@@ -26,10 +26,10 @@ export interface WaveOptions {
 }
 
 export interface AnimationProps {
-  inMin: number;
-  inMax: number;
-  outMin: number;
-  outMax: number;
+  constriction: number;
+  amplitudeY: number;
+  amplitudeX: number;
+  id: string;
 }
 
 export interface CanvasObject {

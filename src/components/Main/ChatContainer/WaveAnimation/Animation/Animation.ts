@@ -5,7 +5,12 @@ import {
   WaveOptions,
 } from "../../../../../types/types";
 
-function Animation({ inMin, inMax, outMin, outMax }: AnimationProps) {
+function Animation({
+  constriction,
+  amplitudeY,
+  amplitudeX,
+  id,
+}: AnimationProps) {
   function valueMapping(
     x: number,
     inMin: number,
@@ -13,7 +18,7 @@ function Animation({ inMin, inMax, outMin, outMax }: AnimationProps) {
     outMin: number,
     outMax: number
   ) {
-    return ((x - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+    return (x * (outMax - outMin)) / (inMax - inMin) + outMin;
   }
 
   const canvas: CanvasObject = {
@@ -25,7 +30,7 @@ function Animation({ inMin, inMax, outMin, outMax }: AnimationProps) {
     init() {
       this.ele.id = "canvas";
       this.ele.setAttribute("class", "wave__canvas");
-      const waveSection = document.getElementById("wave__section");
+      const waveSection = document.getElementById(id);
       if (waveSection) {
         waveSection.prepend(this.ele);
       }
@@ -114,16 +119,22 @@ function Animation({ inMin, inMax, outMin, outMax }: AnimationProps) {
 
     const init = () => {
       waves = [];
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 11; i++) {
         const [start, stop] =
           gradients[Math.floor(Math.random() * gradients.length)];
         waves.push(
           new Wave(canvas, {
             start,
             stop,
-            lineWidth: 1,
-            xSpeed: valueMapping(Math.random(), inMin, inMax, outMin, outMax),
-            amplitude: valueMapping(Math.random(), 0, 1, 0.05, 0.4),
+            lineWidth: 0.5,
+            xSpeed: valueMapping(Math.random(), 0, 1, -0.05, -0.02),
+            amplitude: valueMapping(
+              Math.random(),
+              0,
+              constriction,
+              amplitudeY,
+              amplitudeX
+            ),
             offset: Math.random() * 100,
           })
         );
@@ -148,27 +159,7 @@ function Animation({ inMin, inMax, outMin, outMax }: AnimationProps) {
       waves = [];
       canvas.ele.remove();
     };
-  }, [inMin, inMax, outMin, outMax]);
-
-  // useEffect(() => {
-  //   // Функция для пересчета значений и обновления анимации
-
-  //   function updateAnimation() {
-  //     // Пересчитываем значения
-  //     const xSpeed = valueMapping(Math.random(), inMin, inMax, outMin, outMax);
-  //     const amplitude = valueMapping(Math.random(), 0, 1, 0.05, 0.4);
-
-  //     // Обновляем значения в каждой анимации
-  //     waves.forEach((wave) => {
-  //       wave.options.xSpeed = xSpeed;
-  //       wave.options.amplitude = amplitude;
-  //       wave.resize();
-  //     });
-  //   }
-
-  //   // Вызываем функцию для пересчета значений и обновления анимации при изменении пропсов
-  //   updateAnimation();
-  // }, [inMin, inMax, outMin, outMax]);
+  }, [constriction, amplitudeY, amplitudeX]);
 
   return null;
 }

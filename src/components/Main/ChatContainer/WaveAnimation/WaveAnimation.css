@@ -7,6 +7,7 @@
   width: 100%;
   height: 188px;
   position: relative;
+  overflow: hidden;
 }
 
 .wave__record-block {
@@ -22,4 +23,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.wave__animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: rotateX(90deg);
+  transition: transform 0.8s ease;
+}
+
+.wave__still-animation_visible {
+  transform: rotateX(45deg);
+}
+
+.wave__moving-animation_visible {
+  transform: rotateX(180deg);
 }

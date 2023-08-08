@@ -11,12 +11,12 @@ import {
   messagesSelector,
   resetChat,
 } from "../../../services/redux/slices/chat/chat";
-import { CURRENT_DATE } from "../../../utils/constants";
 import {
   currentLanguageSelector,
   languageSelector,
 } from "../../../services/redux/slices/language/language";
 import { IChatMessage } from "../../../types/types";
+import { getCurrentDate } from "../../../utils/utils";
 
 const Sidebar: FC = () => {
   const dispatch = useAppDispatch();
@@ -61,7 +61,7 @@ const Sidebar: FC = () => {
           <HistoryInput />
         ) : null}
         {userMessages?.length ? (
-          <p className="sidebar__date">{CURRENT_DATE}</p>
+          <p className="sidebar__date">{getCurrentDate()}</p>
         ) : null}
         {userMessages?.length ? (
           userMessages.map((text, index) => {
